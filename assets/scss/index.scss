@@ -1,8 +1,11 @@
 @use 'inc/vars' as *;
 @use 'inc/mixins' as *;
 
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sofia+Sans+Condensed:ital,wght@0,1;0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,1;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
 html {
   font-size: 16px;
+  font-family: Cuprum, sans-serif;
 
   @include media($MQ_SM $MQ_MD) {
     @include responsive-type(16px, 18px, $MQ_SM, $MQ_MD);
@@ -23,4 +26,14 @@ html {
   @include media($MQ_2XL, min) {
     font-size: 20px;
   }
+}
+
+html,
+body,
+#__nuxt {
+  height: 100%
+}
+
+#__nuxt {
+  @apply flex flex-col;
 }
