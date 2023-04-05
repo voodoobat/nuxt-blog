@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       default: {
-        httpEndpoint: process.env.GRAPHQL_URL || 'http:0.0.0.0/graphql',
+        httpEndpoint: process.env.GRAPHQL_URL || 'http://localhost/graphql',
       },
     },
   },
