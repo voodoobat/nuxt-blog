@@ -1,0 +1,26 @@
+@use 'inc/vars' as *;
+@use 'inc/mixins' as *;
+
+html {
+  font-size: 16px;
+
+  @include media($MQ_SM $MQ_MD) {
+    @include responsive-type(16px, 18px, $MQ_SM, $MQ_MD);
+  }
+
+  @include media($MQ_MD $MQ_LG) {
+    @include responsive-type(15px, 20px, $MQ_MD, $MQ_LG);
+  }
+
+  @include media($MQ_LG $MQ_XL) {
+    @include responsive-type(15px, 20px, $MQ_LG, $MQ_XL);
+  }
+
+  @include media($MQ_XL $MQ_2XL) {
+    @include responsive-type(16px, 18px, $MQ_XL, $MQ_2XL);
+  }
+
+  @include media($MQ_2XL, min) {
+    font-size: 20px;
+  }
+}

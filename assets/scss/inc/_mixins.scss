@@ -1,0 +1,29 @@
+@use 'sass:list';
+@use 'functions' as *;
+
+@mixin responsive-type($font-size-min, $font-size-max, $point-min, $point-max) {
+  $font-size-rem: remove-unit($font-size-max - $font-size-min);
+  $point-rem: remove-unit($point-max - $point-min);
+
+  font-size: calc(
+    #{$font-size-min} + #{$font-size-rem} * (100vw - #{$point-min}) / #{$point-rem}
+  );
+}
+
+@mixin media($point, $minmax: min) {
+  @if type-of($point) == list {
+    @media (min-width: nth($point, 1)) and (max-width: nth($point, 2) - 0.2) {
+      @content;
+    }
+  }
+
+  @if type-of($point) == number {
+    @if $minmax == max {
+      $point: $point - 0.2;
+    }
+
+    @media (#{$minmax}-width: $point) {
+      @content;
+    }
+  }
+}
