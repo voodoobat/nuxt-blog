@@ -37,3 +37,13 @@ body,
 #__nuxt {
   @apply flex flex-col;
 }
+
+a {
+  @apply hover:text-lime-400 transition-colors;
+}
+
+input,
+textarea,
+button {
+  @apply focus:outline-none;
+}

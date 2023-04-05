@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { UnwrapRef } from 'vue'
 import { PostEntity } from '~/generated/schema'
 import DateFormat from '~/components/utilities/DateFormat.vue'
