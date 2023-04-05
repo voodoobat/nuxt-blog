@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxtjs/apollo',
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/svg-sprite',
   ],
   apollo: {
     clients: {
@@ -12,5 +13,9 @@ export default defineNuxtConfig({
         httpEndpoint: process.env.GRAPHQL_URL || 'http://localhost/graphql',
       },
     },
+  },
+  svgSprite: {
+    input: '~/assets/icons',
+    output: '~/assets/generated/icons',
   },
 })
