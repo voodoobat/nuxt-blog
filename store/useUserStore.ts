@@ -1,41 +1,34 @@
 import { defineStore } from 'pinia'
-import { Mutation, Profile, UsersPermissionsLoginInput } from '~/generated/schema'
-import { loginMutation } from '~/graphql/queries/loginMutation'
-import { profileQuery } from '~/graphql/queries/profileQuery'
+import { UsersPermissionsLoginInput, UsersPermissionsLoginPayload, UsersPermissionsUser } from '~/generated/schema'
+import { useAxios } from '~/services/axios.service'
 
 export const useUserStore = defineStore('user', {
   state: () => <{
     isAuthorized: boolean
-    profile: Profile
+    user: UsersPermissionsUser
   }>({
     isAuthorized: false,
-    profile: {},
   }),
   actions: {
-    async fetchOne () {
+    fetchOne () {
       const jwt = useCookie('jwt')
       if (jwt.value) {
-        const { error, data } = await useAsyncQuery(profileQuery)
-
-        if (error.value) {
-          return console.error(error.value)
-        }
-
-        console.log(data)
         this.isAuthorized = true
       }
     },
 
     async login (input: UsersPermissionsLoginInput) {
       const jwt = useCookie('jwt')
-      const { error, data } = await useAsyncQuery<Mutation>(loginMutation, input)
+      const { data, error } = await useAxios<UsersPermissionsLoginPayload>('post', '/auth/local', input)
 
-      if (error.value) {
-        return error.value
+      if (error) {
+        return error
       }
 
-      jwt.value = data.value?.login.jwt || null
-      await this.fetchOne()
+      if (data?.jwt) {
+        this.isAuthorized = true
+        jwt.value = data.jwt
+      }
     },
 
     logout () {

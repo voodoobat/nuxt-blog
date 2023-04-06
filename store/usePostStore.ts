@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import { PostEntity, Query } from '~/generated/schema'
-import { postsQuery } from '~/graphql/queries/postsQuery'
+import { PostEntity, PostEntityResponseCollection } from '~/generated/schema'
+import { useAxios } from '~/services/axios.service'
 
 export const usePostStore = defineStore('posts', {
   state: () => <{
@@ -10,13 +10,14 @@ export const usePostStore = defineStore('posts', {
   }),
   actions: {
     async fetch () {
-      const { error, data } = await useAsyncQuery<Query>(postsQuery)
+      const { data, error } =
+        await useAxios<PostEntityResponseCollection>('get', '/posts')
 
-      if (error.value) {
-        return console.error(error)
+      if (error) {
+        return error
       }
 
-      this.posts = data.value?.posts?.data || []
+      this.posts = data?.data || []
     },
   },
 })
