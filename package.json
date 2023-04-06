@@ -19,6 +19,8 @@
     "@nuxtjs/svg-sprite": "^1.0.2",
     "@nuxtjs/tailwindcss": "^6.6.5",
     "@pinia/nuxt": "^0.4.7",
+    "@vuelidate/core": "^2.0.2",
+    "@vuelidate/validators": "^2.0.2",
     "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "eslint": "^8.36.0",
