@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       default: {
+        tokenName: 'jwt',
         httpEndpoint: process.env.GRAPHQL_URL || 'http://localhost/graphql',
       },
     },

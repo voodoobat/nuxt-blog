@@ -3,8 +3,16 @@
     <div class="text-lg text-center pb-2">
       Sign in
     </div>
-    <FormInputText v-model:value="input.username" placeholder="username" />
-    <FormInputText v-model:value="input.password" placeholder="password" />
+    <FormInputText
+      v-model:value="input.identifier"
+      type="text"
+      placeholder="username or email"
+    />
+    <FormInputText
+      v-model:value="input.password"
+      type="password"
+      placeholder="password"
+    />
     <FormButton type="submit" :disabled="isDisabled">
       log in
     </FormButton>
@@ -12,11 +20,14 @@
 </template>
 
 <script setup lang="ts">
+import { useUserStore } from '~/store/user'
+
+const user = useUserStore()
 const input = reactive({
-  username: '',
+  identifier: '',
   password: '',
 })
 
-const isDisabled = computed(() => (!input.username || !input.password))
-const submit = console.log
+const isDisabled = computed(() => (!input.identifier || !input.password))
+const submit = async () => await user.login(input)
 </script>
