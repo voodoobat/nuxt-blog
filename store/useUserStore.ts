@@ -1,17 +1,27 @@
 import { defineStore } from 'pinia'
-import { Mutation, UsersPermissionsLoginInput } from '~/generated/schema'
+import { Mutation, Profile, UsersPermissionsLoginInput } from '~/generated/schema'
 import { loginMutation } from '~/graphql/queries/loginMutation'
+import { profileQuery } from '~/graphql/queries/profileQuery'
 
 export const useUserStore = defineStore('user', {
-  state: () => ({
+  state: () => <{
+    isAuthorized: boolean
+    profile: Profile
+  }>({
     isAuthorized: false,
-    username: '',
+    profile: {},
   }),
   actions: {
-    fetchOne () {
+    async fetchOne () {
       const jwt = useCookie('jwt')
-
       if (jwt.value) {
+        const { error, data } = await useAsyncQuery(profileQuery)
+
+        if (error.value) {
+          return console.error(error.value)
+        }
+
+        console.log(data)
         this.isAuthorized = true
       }
     },
