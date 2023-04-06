@@ -1,9 +1,7 @@
 <template>
   <LayoutContainer class="flex h-full items-center justify-center">
-    <UserLoginForm v-if="!userStore.isAuthorized" />
-    <BaseButton v-else @click="userStore.logout">
-      sign out
-    </BaseButton>
+    <UserFormLogin v-if="!userStore.isAuthorized" />
+    <UserAccountView v-else />
   </LayoutContainer>
 </template>
 
