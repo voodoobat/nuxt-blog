@@ -93,7 +93,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = I18NLocale | Post | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = I18NLocale | Post | Profile | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -208,6 +208,7 @@ export type Mutation = {
   /** Change user password. Confirm with the current password. */
   changePassword?: Maybe<UsersPermissionsLoginPayload>;
   createPost?: Maybe<PostEntityResponse>;
+  createProfile?: Maybe<ProfileEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   createUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Create a new role */
@@ -215,6 +216,7 @@ export type Mutation = {
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   deletePost?: Maybe<PostEntityResponse>;
+  deleteProfile?: Maybe<ProfileEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Delete an existing role */
@@ -234,6 +236,7 @@ export type Mutation = {
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateFileInfo: UploadFileEntityResponse;
   updatePost?: Maybe<PostEntityResponse>;
+  updateProfile?: Maybe<ProfileEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Update an existing role */
@@ -253,6 +256,11 @@ export type MutationChangePasswordArgs = {
 
 export type MutationCreatePostArgs = {
   data: PostInput;
+};
+
+
+export type MutationCreateProfileArgs = {
+  data: ProfileInput;
 };
 
 
@@ -277,6 +285,11 @@ export type MutationCreateUsersPermissionsUserArgs = {
 
 
 export type MutationDeletePostArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type MutationDeleteProfileArgs = {
   id: Scalars['ID'];
 };
 
@@ -349,6 +362,12 @@ export type MutationUpdateFileInfoArgs = {
 
 export type MutationUpdatePostArgs = {
   data: PostInput;
+  id: Scalars['ID'];
+};
+
+
+export type MutationUpdateProfileArgs = {
+  data: ProfileInput;
   id: Scalars['ID'];
 };
 
@@ -444,6 +463,47 @@ export type PostInput = {
   user?: InputMaybe<Scalars['ID']>;
 };
 
+export type Profile = {
+  __typename?: 'Profile';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  displayName?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  user?: Maybe<UsersPermissionsUserEntityResponse>;
+};
+
+export type ProfileEntity = {
+  __typename?: 'ProfileEntity';
+  attributes?: Maybe<Profile>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ProfileEntityResponse = {
+  __typename?: 'ProfileEntityResponse';
+  data?: Maybe<ProfileEntity>;
+};
+
+export type ProfileEntityResponseCollection = {
+  __typename?: 'ProfileEntityResponseCollection';
+  data: Array<ProfileEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ProfileFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ProfileFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  displayName?: InputMaybe<StringFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<ProfileFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ProfileFiltersInput>>>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  user?: InputMaybe<UsersPermissionsUserFiltersInput>;
+};
+
+export type ProfileInput = {
+  displayName?: InputMaybe<Scalars['String']>;
+  user?: InputMaybe<Scalars['ID']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
@@ -451,6 +511,8 @@ export type Query = {
   me?: Maybe<UsersPermissionsMe>;
   post?: Maybe<PostEntityResponse>;
   posts?: Maybe<PostEntityResponseCollection>;
+  profile?: Maybe<ProfileEntityResponse>;
+  profiles?: Maybe<ProfileEntityResponseCollection>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   uploadFolder?: Maybe<UploadFolderEntityResponse>;
@@ -481,6 +543,18 @@ export type QueryPostArgs = {
 
 export type QueryPostsArgs = {
   filters?: InputMaybe<PostFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryProfileArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryProfilesArgs = {
+  filters?: InputMaybe<ProfileFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
@@ -877,6 +951,7 @@ export type UsersPermissionsUser = {
   confirmed?: Maybe<Scalars['Boolean']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
+  profile?: Maybe<ProfileEntityResponse>;
   provider?: Maybe<Scalars['String']>;
   role?: Maybe<UsersPermissionsRoleEntityResponse>;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -911,6 +986,7 @@ export type UsersPermissionsUserFiltersInput = {
   not?: InputMaybe<UsersPermissionsUserFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
   password?: InputMaybe<StringFilterInput>;
+  profile?: InputMaybe<ProfileFiltersInput>;
   provider?: InputMaybe<StringFilterInput>;
   resetPasswordToken?: InputMaybe<StringFilterInput>;
   role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
@@ -924,6 +1000,7 @@ export type UsersPermissionsUserInput = {
   confirmed?: InputMaybe<Scalars['Boolean']>;
   email?: InputMaybe<Scalars['String']>;
   password?: InputMaybe<Scalars['String']>;
+  profile?: InputMaybe<Scalars['ID']>;
   provider?: InputMaybe<Scalars['String']>;
   resetPasswordToken?: InputMaybe<Scalars['String']>;
   role?: InputMaybe<Scalars['ID']>;
