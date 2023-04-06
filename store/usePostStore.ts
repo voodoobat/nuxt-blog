@@ -1,17 +1,17 @@
 import { defineStore } from 'pinia'
-import { PostEntity, PostEntityResponseCollection } from '~/generated/schema'
+import { PostListResponse, PostListResponseDataItem } from '~/generated/schema'
 import { useAxios } from '~/services/axios.service'
 
 export const usePostStore = defineStore('posts', {
   state: () => <{
-    posts: PostEntity[]
+    posts: PostListResponseDataItem[]
   }>({
     posts: [],
   }),
   actions: {
     async fetch () {
       const { data, error } =
-        await useAxios<PostEntityResponseCollection>('get', '/posts')
+        await useAxios<PostListResponse>('get', '/posts')
 
       if (error) {
         return error

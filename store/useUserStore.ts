@@ -1,32 +1,39 @@
 import { defineStore } from 'pinia'
-import { UsersPermissionsLoginInput, UsersPermissionsLoginPayload, UsersPermissionsUser } from '~/generated/schema'
 import { useAxios } from '~/services/axios.service'
+import { UsersPermissionsUser, UsersPermissionsUserRegistration } from '~/generated/schema'
 
 export const useUserStore = defineStore('user', {
-  state: () => <{
-    isAuthorized: boolean
-    user: UsersPermissionsUser
-  }>({
-    isAuthorized: false,
+  state: () => <{ user: UsersPermissionsUser }>({
+    user: {},
   }),
   actions: {
-    fetchOne () {
+    async fetchOne () {
       const jwt = useCookie('jwt')
+
       if (jwt.value) {
-        this.isAuthorized = true
+        const { data, error } =
+          await useAxios<UsersPermissionsUser>('get', '/users/me')
+
+        if (error) {
+          console.error(error)
+        }
+
+        this.user = data || {}
       }
     },
 
-    async login (input: UsersPermissionsLoginInput) {
+    async login (input: { identifier: string, password: string }) {
       const jwt = useCookie('jwt')
-      const { data, error } = await useAxios<UsersPermissionsLoginPayload>('post', '/auth/local', input)
+      const { data, error } =
+        await useAxios<UsersPermissionsUserRegistration>('post', '/auth/local', input)
 
       if (error) {
         return error
       }
 
       if (data?.jwt) {
-        this.isAuthorized = true
+        this.user = data.user || {}
+
         jwt.value = data.jwt
       }
     },
@@ -35,7 +42,12 @@ export const useUserStore = defineStore('user', {
       const jwt = useCookie('jwt')
 
       jwt.value = null
-      this.isAuthorized = false
+      this.user = {}
+    },
+  },
+  getters: {
+    isAuthorized (): boolean {
+      return Boolean(this.user?.id)
     },
   },
 })

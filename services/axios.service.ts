@@ -1,4 +1,5 @@
 import axios, { Method } from 'axios'
+
 export const useAxios = async <T>(method: Method, url: string, data?: any) => {
   const config = useRuntimeConfig()
   const jwt = useCookie('jwt').value
