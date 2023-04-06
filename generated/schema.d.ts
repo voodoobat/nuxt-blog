@@ -1,1013 +1,8034 @@
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-/** All built-in and custom scalars, mapped to their actual values */
-export type Scalars = {
-  ID: string;
-  String: string;
-  Boolean: boolean;
-  Int: number;
-  Float: number;
-  DateTime: any;
-  JSON: any;
-  Upload: any;
-};
-
-export type BooleanFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  contains?: InputMaybe<Scalars['Boolean']>;
-  containsi?: InputMaybe<Scalars['Boolean']>;
-  endsWith?: InputMaybe<Scalars['Boolean']>;
-  eq?: InputMaybe<Scalars['Boolean']>;
-  eqi?: InputMaybe<Scalars['Boolean']>;
-  gt?: InputMaybe<Scalars['Boolean']>;
-  gte?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  lt?: InputMaybe<Scalars['Boolean']>;
-  lte?: InputMaybe<Scalars['Boolean']>;
-  ne?: InputMaybe<Scalars['Boolean']>;
-  not?: InputMaybe<BooleanFilterInput>;
-  notContains?: InputMaybe<Scalars['Boolean']>;
-  notContainsi?: InputMaybe<Scalars['Boolean']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']>;
-  null?: InputMaybe<Scalars['Boolean']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  startsWith?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type DateTimeFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  contains?: InputMaybe<Scalars['DateTime']>;
-  containsi?: InputMaybe<Scalars['DateTime']>;
-  endsWith?: InputMaybe<Scalars['DateTime']>;
-  eq?: InputMaybe<Scalars['DateTime']>;
-  eqi?: InputMaybe<Scalars['DateTime']>;
-  gt?: InputMaybe<Scalars['DateTime']>;
-  gte?: InputMaybe<Scalars['DateTime']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  lt?: InputMaybe<Scalars['DateTime']>;
-  lte?: InputMaybe<Scalars['DateTime']>;
-  ne?: InputMaybe<Scalars['DateTime']>;
-  not?: InputMaybe<DateTimeFilterInput>;
-  notContains?: InputMaybe<Scalars['DateTime']>;
-  notContainsi?: InputMaybe<Scalars['DateTime']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']>;
-  null?: InputMaybe<Scalars['Boolean']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  startsWith?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type FileInfoInput = {
-  alternativeText?: InputMaybe<Scalars['String']>;
-  caption?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-};
-
-export type FloatFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  contains?: InputMaybe<Scalars['Float']>;
-  containsi?: InputMaybe<Scalars['Float']>;
-  endsWith?: InputMaybe<Scalars['Float']>;
-  eq?: InputMaybe<Scalars['Float']>;
-  eqi?: InputMaybe<Scalars['Float']>;
-  gt?: InputMaybe<Scalars['Float']>;
-  gte?: InputMaybe<Scalars['Float']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  lt?: InputMaybe<Scalars['Float']>;
-  lte?: InputMaybe<Scalars['Float']>;
-  ne?: InputMaybe<Scalars['Float']>;
-  not?: InputMaybe<FloatFilterInput>;
-  notContains?: InputMaybe<Scalars['Float']>;
-  notContainsi?: InputMaybe<Scalars['Float']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']>;
-  null?: InputMaybe<Scalars['Boolean']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  startsWith?: InputMaybe<Scalars['Float']>;
-};
-
-export type GenericMorph = I18NLocale | Post | Profile | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
-
-export type I18NLocale = {
-  __typename?: 'I18NLocale';
-  code?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  name?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type I18NLocaleEntity = {
-  __typename?: 'I18NLocaleEntity';
-  attributes?: Maybe<I18NLocale>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type I18NLocaleEntityResponse = {
-  __typename?: 'I18NLocaleEntityResponse';
-  data?: Maybe<I18NLocaleEntity>;
-};
-
-export type I18NLocaleEntityResponseCollection = {
-  __typename?: 'I18NLocaleEntityResponseCollection';
-  data: Array<I18NLocaleEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type I18NLocaleFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<I18NLocaleFiltersInput>>>;
-  code?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<I18NLocaleFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<I18NLocaleFiltersInput>>>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type IdFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  contains?: InputMaybe<Scalars['ID']>;
-  containsi?: InputMaybe<Scalars['ID']>;
-  endsWith?: InputMaybe<Scalars['ID']>;
-  eq?: InputMaybe<Scalars['ID']>;
-  eqi?: InputMaybe<Scalars['ID']>;
-  gt?: InputMaybe<Scalars['ID']>;
-  gte?: InputMaybe<Scalars['ID']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  lt?: InputMaybe<Scalars['ID']>;
-  lte?: InputMaybe<Scalars['ID']>;
-  ne?: InputMaybe<Scalars['ID']>;
-  not?: InputMaybe<IdFilterInput>;
-  notContains?: InputMaybe<Scalars['ID']>;
-  notContainsi?: InputMaybe<Scalars['ID']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']>;
-  null?: InputMaybe<Scalars['Boolean']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  startsWith?: InputMaybe<Scalars['ID']>;
-};
-
-export type IntFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  contains?: InputMaybe<Scalars['Int']>;
-  containsi?: InputMaybe<Scalars['Int']>;
-  endsWith?: InputMaybe<Scalars['Int']>;
-  eq?: InputMaybe<Scalars['Int']>;
-  eqi?: InputMaybe<Scalars['Int']>;
-  gt?: InputMaybe<Scalars['Int']>;
-  gte?: InputMaybe<Scalars['Int']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  lt?: InputMaybe<Scalars['Int']>;
-  lte?: InputMaybe<Scalars['Int']>;
-  ne?: InputMaybe<Scalars['Int']>;
-  not?: InputMaybe<IntFilterInput>;
-  notContains?: InputMaybe<Scalars['Int']>;
-  notContainsi?: InputMaybe<Scalars['Int']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']>;
-  null?: InputMaybe<Scalars['Boolean']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  startsWith?: InputMaybe<Scalars['Int']>;
-};
-
-export type JsonFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  contains?: InputMaybe<Scalars['JSON']>;
-  containsi?: InputMaybe<Scalars['JSON']>;
-  endsWith?: InputMaybe<Scalars['JSON']>;
-  eq?: InputMaybe<Scalars['JSON']>;
-  eqi?: InputMaybe<Scalars['JSON']>;
-  gt?: InputMaybe<Scalars['JSON']>;
-  gte?: InputMaybe<Scalars['JSON']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  lt?: InputMaybe<Scalars['JSON']>;
-  lte?: InputMaybe<Scalars['JSON']>;
-  ne?: InputMaybe<Scalars['JSON']>;
-  not?: InputMaybe<JsonFilterInput>;
-  notContains?: InputMaybe<Scalars['JSON']>;
-  notContainsi?: InputMaybe<Scalars['JSON']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']>;
-  null?: InputMaybe<Scalars['Boolean']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  startsWith?: InputMaybe<Scalars['JSON']>;
-};
-
-export type Mutation = {
-  __typename?: 'Mutation';
-  /** Change user password. Confirm with the current password. */
-  changePassword?: Maybe<UsersPermissionsLoginPayload>;
-  createPost?: Maybe<PostEntityResponse>;
-  createProfile?: Maybe<ProfileEntityResponse>;
-  createUploadFile?: Maybe<UploadFileEntityResponse>;
-  createUploadFolder?: Maybe<UploadFolderEntityResponse>;
-  /** Create a new role */
-  createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
-  /** Create a new user */
-  createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  deletePost?: Maybe<PostEntityResponse>;
-  deleteProfile?: Maybe<ProfileEntityResponse>;
-  deleteUploadFile?: Maybe<UploadFileEntityResponse>;
-  deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
-  /** Delete an existing role */
-  deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
-  /** Delete an existing user */
-  deleteUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  /** Confirm an email users email address */
-  emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
-  /** Request a reset password token */
-  forgotPassword?: Maybe<UsersPermissionsPasswordPayload>;
-  login: UsersPermissionsLoginPayload;
-  multipleUpload: Array<Maybe<UploadFileEntityResponse>>;
-  /** Register a user */
-  register: UsersPermissionsLoginPayload;
-  removeFile?: Maybe<UploadFileEntityResponse>;
-  /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
-  resetPassword?: Maybe<UsersPermissionsLoginPayload>;
-  updateFileInfo: UploadFileEntityResponse;
-  updatePost?: Maybe<PostEntityResponse>;
-  updateProfile?: Maybe<ProfileEntityResponse>;
-  updateUploadFile?: Maybe<UploadFileEntityResponse>;
-  updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
-  /** Update an existing role */
-  updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
-  /** Update an existing user */
-  updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  upload: UploadFileEntityResponse;
-};
-
-
-export type MutationChangePasswordArgs = {
-  currentPassword: Scalars['String'];
-  password: Scalars['String'];
-  passwordConfirmation: Scalars['String'];
-};
-
-
-export type MutationCreatePostArgs = {
-  data: PostInput;
-};
-
-
-export type MutationCreateProfileArgs = {
-  data: ProfileInput;
-};
-
-
-export type MutationCreateUploadFileArgs = {
-  data: UploadFileInput;
-};
-
-
-export type MutationCreateUploadFolderArgs = {
-  data: UploadFolderInput;
-};
-
-
-export type MutationCreateUsersPermissionsRoleArgs = {
-  data: UsersPermissionsRoleInput;
-};
-
-
-export type MutationCreateUsersPermissionsUserArgs = {
-  data: UsersPermissionsUserInput;
-};
-
-
-export type MutationDeletePostArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteProfileArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteUploadFileArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteUploadFolderArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteUsersPermissionsRoleArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteUsersPermissionsUserArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationEmailConfirmationArgs = {
-  confirmation: Scalars['String'];
-};
-
-
-export type MutationForgotPasswordArgs = {
-  email: Scalars['String'];
-};
-
-
-export type MutationLoginArgs = {
-  input: UsersPermissionsLoginInput;
-};
-
-
-export type MutationMultipleUploadArgs = {
-  field?: InputMaybe<Scalars['String']>;
-  files: Array<InputMaybe<Scalars['Upload']>>;
-  ref?: InputMaybe<Scalars['String']>;
-  refId?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type MutationRegisterArgs = {
-  input: UsersPermissionsRegisterInput;
-};
-
-
-export type MutationRemoveFileArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationResetPasswordArgs = {
-  code: Scalars['String'];
-  password: Scalars['String'];
-  passwordConfirmation: Scalars['String'];
-};
-
-
-export type MutationUpdateFileInfoArgs = {
-  id: Scalars['ID'];
-  info?: InputMaybe<FileInfoInput>;
-};
-
-
-export type MutationUpdatePostArgs = {
-  data: PostInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateProfileArgs = {
-  data: ProfileInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateUploadFileArgs = {
-  data: UploadFileInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateUploadFolderArgs = {
-  data: UploadFolderInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateUsersPermissionsRoleArgs = {
-  data: UsersPermissionsRoleInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateUsersPermissionsUserArgs = {
-  data: UsersPermissionsUserInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUploadArgs = {
-  field?: InputMaybe<Scalars['String']>;
-  file: Scalars['Upload'];
-  info?: InputMaybe<FileInfoInput>;
-  ref?: InputMaybe<Scalars['String']>;
-  refId?: InputMaybe<Scalars['ID']>;
-};
-
-export type Pagination = {
-  __typename?: 'Pagination';
-  page: Scalars['Int'];
-  pageCount: Scalars['Int'];
-  pageSize: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export type PaginationArg = {
-  limit?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  pageSize?: InputMaybe<Scalars['Int']>;
-  start?: InputMaybe<Scalars['Int']>;
-};
-
-export type Post = {
-  __typename?: 'Post';
-  content: Scalars['String'];
-  createdAt?: Maybe<Scalars['DateTime']>;
-  title: Scalars['String'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  user?: Maybe<UsersPermissionsUserEntityResponse>;
-};
-
-export type PostEntity = {
-  __typename?: 'PostEntity';
-  attributes?: Maybe<Post>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type PostEntityResponse = {
-  __typename?: 'PostEntityResponse';
-  data?: Maybe<PostEntity>;
-};
-
-export type PostEntityResponseCollection = {
-  __typename?: 'PostEntityResponseCollection';
-  data: Array<PostEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type PostFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<PostFiltersInput>>>;
-  content?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<PostFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<PostFiltersInput>>>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  user?: InputMaybe<UsersPermissionsUserFiltersInput>;
-};
-
-export type PostInput = {
-  content?: InputMaybe<Scalars['String']>;
-  title?: InputMaybe<Scalars['String']>;
-  user?: InputMaybe<Scalars['ID']>;
-};
-
-export type Profile = {
-  __typename?: 'Profile';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  displayName?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  user?: Maybe<UsersPermissionsUserEntityResponse>;
-};
-
-export type ProfileEntity = {
-  __typename?: 'ProfileEntity';
-  attributes?: Maybe<Profile>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type ProfileEntityResponse = {
-  __typename?: 'ProfileEntityResponse';
-  data?: Maybe<ProfileEntity>;
-};
-
-export type ProfileEntityResponseCollection = {
-  __typename?: 'ProfileEntityResponseCollection';
-  data: Array<ProfileEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type ProfileFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ProfileFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  displayName?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<ProfileFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ProfileFiltersInput>>>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  user?: InputMaybe<UsersPermissionsUserFiltersInput>;
-};
-
-export type ProfileInput = {
-  displayName?: InputMaybe<Scalars['String']>;
-  user?: InputMaybe<Scalars['ID']>;
-};
-
-export type Query = {
-  __typename?: 'Query';
-  i18NLocale?: Maybe<I18NLocaleEntityResponse>;
-  i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
-  me?: Maybe<UsersPermissionsMe>;
-  post?: Maybe<PostEntityResponse>;
-  posts?: Maybe<PostEntityResponseCollection>;
-  profile?: Maybe<ProfileEntityResponse>;
-  profiles?: Maybe<ProfileEntityResponseCollection>;
-  uploadFile?: Maybe<UploadFileEntityResponse>;
-  uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
-  uploadFolder?: Maybe<UploadFolderEntityResponse>;
-  uploadFolders?: Maybe<UploadFolderEntityResponseCollection>;
-  usersPermissionsRole?: Maybe<UsersPermissionsRoleEntityResponse>;
-  usersPermissionsRoles?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
-  usersPermissionsUser?: Maybe<UsersPermissionsUserEntityResponse>;
-  usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
-};
-
-
-export type QueryI18NLocaleArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryI18NLocalesArgs = {
-  filters?: InputMaybe<I18NLocaleFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryPostArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryPostsArgs = {
-  filters?: InputMaybe<PostFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryProfileArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryProfilesArgs = {
-  filters?: InputMaybe<ProfileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryUploadFileArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryUploadFilesArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryUploadFolderArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryUploadFoldersArgs = {
-  filters?: InputMaybe<UploadFolderFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryUsersPermissionsRoleArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryUsersPermissionsRolesArgs = {
-  filters?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryUsersPermissionsUserArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryUsersPermissionsUsersArgs = {
-  filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type ResponseCollectionMeta = {
-  __typename?: 'ResponseCollectionMeta';
-  pagination: Pagination;
-};
-
-export type StringFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  containsi?: InputMaybe<Scalars['String']>;
-  endsWith?: InputMaybe<Scalars['String']>;
-  eq?: InputMaybe<Scalars['String']>;
-  eqi?: InputMaybe<Scalars['String']>;
-  gt?: InputMaybe<Scalars['String']>;
-  gte?: InputMaybe<Scalars['String']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  lt?: InputMaybe<Scalars['String']>;
-  lte?: InputMaybe<Scalars['String']>;
-  ne?: InputMaybe<Scalars['String']>;
-  not?: InputMaybe<StringFilterInput>;
-  notContains?: InputMaybe<Scalars['String']>;
-  notContainsi?: InputMaybe<Scalars['String']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']>;
-  null?: InputMaybe<Scalars['Boolean']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  startsWith?: InputMaybe<Scalars['String']>;
-};
-
-export type UploadFile = {
-  __typename?: 'UploadFile';
-  alternativeText?: Maybe<Scalars['String']>;
-  caption?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  ext?: Maybe<Scalars['String']>;
-  formats?: Maybe<Scalars['JSON']>;
-  hash: Scalars['String'];
-  height?: Maybe<Scalars['Int']>;
-  mime: Scalars['String'];
-  name: Scalars['String'];
-  previewUrl?: Maybe<Scalars['String']>;
-  provider: Scalars['String'];
-  provider_metadata?: Maybe<Scalars['JSON']>;
-  related?: Maybe<Array<Maybe<GenericMorph>>>;
-  size: Scalars['Float'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  url: Scalars['String'];
-  width?: Maybe<Scalars['Int']>;
-};
-
-export type UploadFileEntity = {
-  __typename?: 'UploadFileEntity';
-  attributes?: Maybe<UploadFile>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type UploadFileEntityResponse = {
-  __typename?: 'UploadFileEntityResponse';
-  data?: Maybe<UploadFileEntity>;
-};
-
-export type UploadFileEntityResponseCollection = {
-  __typename?: 'UploadFileEntityResponseCollection';
-  data: Array<UploadFileEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type UploadFileFiltersInput = {
-  alternativeText?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<UploadFileFiltersInput>>>;
-  caption?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  ext?: InputMaybe<StringFilterInput>;
-  folder?: InputMaybe<UploadFolderFiltersInput>;
-  folderPath?: InputMaybe<StringFilterInput>;
-  formats?: InputMaybe<JsonFilterInput>;
-  hash?: InputMaybe<StringFilterInput>;
-  height?: InputMaybe<IntFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  mime?: InputMaybe<StringFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UploadFileFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UploadFileFiltersInput>>>;
-  previewUrl?: InputMaybe<StringFilterInput>;
-  provider?: InputMaybe<StringFilterInput>;
-  provider_metadata?: InputMaybe<JsonFilterInput>;
-  size?: InputMaybe<FloatFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  url?: InputMaybe<StringFilterInput>;
-  width?: InputMaybe<IntFilterInput>;
-};
-
-export type UploadFileInput = {
-  alternativeText?: InputMaybe<Scalars['String']>;
-  caption?: InputMaybe<Scalars['String']>;
-  ext?: InputMaybe<Scalars['String']>;
-  folder?: InputMaybe<Scalars['ID']>;
-  folderPath?: InputMaybe<Scalars['String']>;
-  formats?: InputMaybe<Scalars['JSON']>;
-  hash?: InputMaybe<Scalars['String']>;
-  height?: InputMaybe<Scalars['Int']>;
-  mime?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  previewUrl?: InputMaybe<Scalars['String']>;
-  provider?: InputMaybe<Scalars['String']>;
-  provider_metadata?: InputMaybe<Scalars['JSON']>;
-  size?: InputMaybe<Scalars['Float']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Int']>;
-};
-
-export type UploadFileRelationResponseCollection = {
-  __typename?: 'UploadFileRelationResponseCollection';
-  data: Array<UploadFileEntity>;
-};
-
-export type UploadFolder = {
-  __typename?: 'UploadFolder';
-  children?: Maybe<UploadFolderRelationResponseCollection>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  files?: Maybe<UploadFileRelationResponseCollection>;
-  name: Scalars['String'];
-  parent?: Maybe<UploadFolderEntityResponse>;
-  path: Scalars['String'];
-  pathId: Scalars['Int'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-
-export type UploadFolderChildrenArgs = {
-  filters?: InputMaybe<UploadFolderFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type UploadFolderFilesArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type UploadFolderEntity = {
-  __typename?: 'UploadFolderEntity';
-  attributes?: Maybe<UploadFolder>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type UploadFolderEntityResponse = {
-  __typename?: 'UploadFolderEntityResponse';
-  data?: Maybe<UploadFolderEntity>;
-};
-
-export type UploadFolderEntityResponseCollection = {
-  __typename?: 'UploadFolderEntityResponseCollection';
-  data: Array<UploadFolderEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type UploadFolderFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<UploadFolderFiltersInput>>>;
-  children?: InputMaybe<UploadFolderFiltersInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  files?: InputMaybe<UploadFileFiltersInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UploadFolderFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UploadFolderFiltersInput>>>;
-  parent?: InputMaybe<UploadFolderFiltersInput>;
-  path?: InputMaybe<StringFilterInput>;
-  pathId?: InputMaybe<IntFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type UploadFolderInput = {
-  children?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  files?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  name?: InputMaybe<Scalars['String']>;
-  parent?: InputMaybe<Scalars['ID']>;
-  path?: InputMaybe<Scalars['String']>;
-  pathId?: InputMaybe<Scalars['Int']>;
-};
-
-export type UploadFolderRelationResponseCollection = {
-  __typename?: 'UploadFolderRelationResponseCollection';
-  data: Array<UploadFolderEntity>;
-};
-
-export type UsersPermissionsCreateRolePayload = {
-  __typename?: 'UsersPermissionsCreateRolePayload';
-  ok: Scalars['Boolean'];
-};
-
-export type UsersPermissionsDeleteRolePayload = {
-  __typename?: 'UsersPermissionsDeleteRolePayload';
-  ok: Scalars['Boolean'];
-};
-
-export type UsersPermissionsLoginInput = {
-  identifier: Scalars['String'];
-  password: Scalars['String'];
-  provider?: Scalars['String'];
-};
-
-export type UsersPermissionsLoginPayload = {
-  __typename?: 'UsersPermissionsLoginPayload';
-  jwt?: Maybe<Scalars['String']>;
-  user: UsersPermissionsMe;
-};
-
-export type UsersPermissionsMe = {
-  __typename?: 'UsersPermissionsMe';
-  blocked?: Maybe<Scalars['Boolean']>;
-  confirmed?: Maybe<Scalars['Boolean']>;
-  email?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  role?: Maybe<UsersPermissionsMeRole>;
-  username: Scalars['String'];
-};
-
-export type UsersPermissionsMeRole = {
-  __typename?: 'UsersPermissionsMeRole';
-  description?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  name: Scalars['String'];
-  type?: Maybe<Scalars['String']>;
-};
-
-export type UsersPermissionsPasswordPayload = {
-  __typename?: 'UsersPermissionsPasswordPayload';
-  ok: Scalars['Boolean'];
-};
-
-export type UsersPermissionsPermission = {
-  __typename?: 'UsersPermissionsPermission';
-  action: Scalars['String'];
-  createdAt?: Maybe<Scalars['DateTime']>;
-  role?: Maybe<UsersPermissionsRoleEntityResponse>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type UsersPermissionsPermissionEntity = {
-  __typename?: 'UsersPermissionsPermissionEntity';
-  attributes?: Maybe<UsersPermissionsPermission>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type UsersPermissionsPermissionFiltersInput = {
-  action?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
-  role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type UsersPermissionsPermissionRelationResponseCollection = {
-  __typename?: 'UsersPermissionsPermissionRelationResponseCollection';
-  data: Array<UsersPermissionsPermissionEntity>;
-};
-
-export type UsersPermissionsRegisterInput = {
-  email: Scalars['String'];
-  password: Scalars['String'];
-  username: Scalars['String'];
-};
-
-export type UsersPermissionsRole = {
-  __typename?: 'UsersPermissionsRole';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  description?: Maybe<Scalars['String']>;
-  name: Scalars['String'];
-  permissions?: Maybe<UsersPermissionsPermissionRelationResponseCollection>;
-  type?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  users?: Maybe<UsersPermissionsUserRelationResponseCollection>;
-};
-
-
-export type UsersPermissionsRolePermissionsArgs = {
-  filters?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type UsersPermissionsRoleUsersArgs = {
-  filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type UsersPermissionsRoleEntity = {
-  __typename?: 'UsersPermissionsRoleEntity';
-  attributes?: Maybe<UsersPermissionsRole>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type UsersPermissionsRoleEntityResponse = {
-  __typename?: 'UsersPermissionsRoleEntityResponse';
-  data?: Maybe<UsersPermissionsRoleEntity>;
-};
-
-export type UsersPermissionsRoleEntityResponseCollection = {
-  __typename?: 'UsersPermissionsRoleEntityResponseCollection';
-  data: Array<UsersPermissionsRoleEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type UsersPermissionsRoleFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<UsersPermissionsRoleFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  description?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UsersPermissionsRoleFiltersInput>>>;
-  permissions?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
-  type?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  users?: InputMaybe<UsersPermissionsUserFiltersInput>;
-};
-
-export type UsersPermissionsRoleInput = {
-  description?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  permissions?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  type?: InputMaybe<Scalars['String']>;
-  users?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-};
-
-export type UsersPermissionsUpdateRolePayload = {
-  __typename?: 'UsersPermissionsUpdateRolePayload';
-  ok: Scalars['Boolean'];
-};
-
-export type UsersPermissionsUser = {
-  __typename?: 'UsersPermissionsUser';
-  blocked?: Maybe<Scalars['Boolean']>;
-  confirmed?: Maybe<Scalars['Boolean']>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  email: Scalars['String'];
-  profile?: Maybe<ProfileEntityResponse>;
-  provider?: Maybe<Scalars['String']>;
-  role?: Maybe<UsersPermissionsRoleEntityResponse>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  username: Scalars['String'];
-};
-
-export type UsersPermissionsUserEntity = {
-  __typename?: 'UsersPermissionsUserEntity';
-  attributes?: Maybe<UsersPermissionsUser>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type UsersPermissionsUserEntityResponse = {
-  __typename?: 'UsersPermissionsUserEntityResponse';
-  data?: Maybe<UsersPermissionsUserEntity>;
-};
-
-export type UsersPermissionsUserEntityResponseCollection = {
-  __typename?: 'UsersPermissionsUserEntityResponseCollection';
-  data: Array<UsersPermissionsUserEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type UsersPermissionsUserFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
-  blocked?: InputMaybe<BooleanFilterInput>;
-  confirmationToken?: InputMaybe<StringFilterInput>;
-  confirmed?: InputMaybe<BooleanFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  email?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<UsersPermissionsUserFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
-  password?: InputMaybe<StringFilterInput>;
-  profile?: InputMaybe<ProfileFiltersInput>;
-  provider?: InputMaybe<StringFilterInput>;
-  resetPasswordToken?: InputMaybe<StringFilterInput>;
-  role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  username?: InputMaybe<StringFilterInput>;
-};
-
-export type UsersPermissionsUserInput = {
-  blocked?: InputMaybe<Scalars['Boolean']>;
-  confirmationToken?: InputMaybe<Scalars['String']>;
-  confirmed?: InputMaybe<Scalars['Boolean']>;
-  email?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
-  profile?: InputMaybe<Scalars['ID']>;
-  provider?: InputMaybe<Scalars['String']>;
-  resetPasswordToken?: InputMaybe<Scalars['String']>;
-  role?: InputMaybe<Scalars['ID']>;
-  username?: InputMaybe<Scalars['String']>;
-};
-
-export type UsersPermissionsUserRelationResponseCollection = {
-  __typename?: 'UsersPermissionsUserRelationResponseCollection';
-  data: Array<UsersPermissionsUserEntity>;
-};
+/* eslint-disable */
+/* tslint:disable */
+/*
+ * ---------------------------------------------------------------
+ * ## THIS FILE WAS GENERATED VIA SWAGGER-TYPESCRIPT-API        ##
+ * ##                                                           ##
+ * ## AUTHOR: acacode                                           ##
+ * ## SOURCE: https://github.com/acacode/swagger-typescript-api ##
+ * ---------------------------------------------------------------
+ */
+
+export interface Error {
+  data?: object | [] | null
+  error: {
+    status?: number
+    name?: string
+    message?: string
+    details?: object
+  }
+}
+
+export interface PostRequest {
+  data: {
+    title: string
+    content: string
+    /** @example "string or id" */
+    user?: number | string
+  }
+}
+
+export interface PostListResponseDataItem {
+  id?: number
+  attributes?: {
+    title?: string
+    content?: string
+    user?: {
+      data?: {
+        id?: number
+        attributes?: {
+          username?: string
+          /** @format email */
+          email?: string
+          provider?: string
+          resetPasswordToken?: string
+          confirmationToken?: string
+          confirmed?: boolean
+          blocked?: boolean
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      action?: string
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            firstname?: string
+                            lastname?: string
+                            username?: string
+                            /** @format email */
+                            email?: string
+                            resetPasswordToken?: string
+                            registrationToken?: string
+                            isActive?: boolean
+                            roles?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  name?: string
+                                  code?: string
+                                  description?: string
+                                  users?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }[]
+                                  }
+                                  permissions?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        action?: string
+                                        subject?: string
+                                        properties?: any
+                                        conditions?: any
+                                        role?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            blocked?: boolean
+                            preferedLanguage?: string
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          profile?: {
+            data?: {
+              id?: number
+              attributes?: {
+                displayName?: string
+                user?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface PostListResponseDataItemLocalized {
+  id?: number
+  attributes?: {
+    title?: string
+    content?: string
+    user?: {
+      data?: {
+        id?: number
+        attributes?: {
+          username?: string
+          /** @format email */
+          email?: string
+          provider?: string
+          resetPasswordToken?: string
+          confirmationToken?: string
+          confirmed?: boolean
+          blocked?: boolean
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      action?: string
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            firstname?: string
+                            lastname?: string
+                            username?: string
+                            /** @format email */
+                            email?: string
+                            resetPasswordToken?: string
+                            registrationToken?: string
+                            isActive?: boolean
+                            roles?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  name?: string
+                                  code?: string
+                                  description?: string
+                                  users?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }[]
+                                  }
+                                  permissions?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        action?: string
+                                        subject?: string
+                                        properties?: any
+                                        conditions?: any
+                                        role?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            blocked?: boolean
+                            preferedLanguage?: string
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          profile?: {
+            data?: {
+              id?: number
+              attributes?: {
+                displayName?: string
+                user?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface PostListResponse {
+  data?: PostListResponseDataItem[]
+  meta?: {
+    pagination?: {
+      page?: number
+      /** @min 25 */
+      pageSize?: number
+      /** @max 1 */
+      pageCount?: number
+      total?: number
+    }
+  }
+}
+
+export interface PostResponseDataObject {
+  id?: number
+  attributes?: {
+    title?: string
+    content?: string
+    user?: {
+      data?: {
+        id?: number
+        attributes?: {
+          username?: string
+          /** @format email */
+          email?: string
+          provider?: string
+          resetPasswordToken?: string
+          confirmationToken?: string
+          confirmed?: boolean
+          blocked?: boolean
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      action?: string
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            firstname?: string
+                            lastname?: string
+                            username?: string
+                            /** @format email */
+                            email?: string
+                            resetPasswordToken?: string
+                            registrationToken?: string
+                            isActive?: boolean
+                            roles?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  name?: string
+                                  code?: string
+                                  description?: string
+                                  users?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }[]
+                                  }
+                                  permissions?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        action?: string
+                                        subject?: string
+                                        properties?: any
+                                        conditions?: any
+                                        role?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            blocked?: boolean
+                            preferedLanguage?: string
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          profile?: {
+            data?: {
+              id?: number
+              attributes?: {
+                displayName?: string
+                user?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface PostResponseDataObjectLocalized {
+  id?: number
+  attributes?: {
+    title?: string
+    content?: string
+    user?: {
+      data?: {
+        id?: number
+        attributes?: {
+          username?: string
+          /** @format email */
+          email?: string
+          provider?: string
+          resetPasswordToken?: string
+          confirmationToken?: string
+          confirmed?: boolean
+          blocked?: boolean
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      action?: string
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            firstname?: string
+                            lastname?: string
+                            username?: string
+                            /** @format email */
+                            email?: string
+                            resetPasswordToken?: string
+                            registrationToken?: string
+                            isActive?: boolean
+                            roles?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  name?: string
+                                  code?: string
+                                  description?: string
+                                  users?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }[]
+                                  }
+                                  permissions?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        action?: string
+                                        subject?: string
+                                        properties?: any
+                                        conditions?: any
+                                        role?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            blocked?: boolean
+                            preferedLanguage?: string
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          profile?: {
+            data?: {
+              id?: number
+              attributes?: {
+                displayName?: string
+                user?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface PostResponse {
+  data?: PostResponseDataObject
+  meta?: object
+}
+
+export interface ProfileRequest {
+  data: {
+    displayName?: string
+    /** @example "string or id" */
+    user?: number | string
+  }
+}
+
+export interface ProfileListResponseDataItem {
+  id?: number
+  attributes?: {
+    displayName?: string
+    user?: {
+      data?: {
+        id?: number
+        attributes?: {
+          username?: string
+          /** @format email */
+          email?: string
+          provider?: string
+          resetPasswordToken?: string
+          confirmationToken?: string
+          confirmed?: boolean
+          blocked?: boolean
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      action?: string
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            firstname?: string
+                            lastname?: string
+                            username?: string
+                            /** @format email */
+                            email?: string
+                            resetPasswordToken?: string
+                            registrationToken?: string
+                            isActive?: boolean
+                            roles?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  name?: string
+                                  code?: string
+                                  description?: string
+                                  users?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }[]
+                                  }
+                                  permissions?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        action?: string
+                                        subject?: string
+                                        properties?: any
+                                        conditions?: any
+                                        role?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            blocked?: boolean
+                            preferedLanguage?: string
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          profile?: {
+            data?: {
+              id?: number
+              attributes?: {
+                displayName?: string
+                user?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface ProfileListResponseDataItemLocalized {
+  id?: number
+  attributes?: {
+    displayName?: string
+    user?: {
+      data?: {
+        id?: number
+        attributes?: {
+          username?: string
+          /** @format email */
+          email?: string
+          provider?: string
+          resetPasswordToken?: string
+          confirmationToken?: string
+          confirmed?: boolean
+          blocked?: boolean
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      action?: string
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            firstname?: string
+                            lastname?: string
+                            username?: string
+                            /** @format email */
+                            email?: string
+                            resetPasswordToken?: string
+                            registrationToken?: string
+                            isActive?: boolean
+                            roles?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  name?: string
+                                  code?: string
+                                  description?: string
+                                  users?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }[]
+                                  }
+                                  permissions?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        action?: string
+                                        subject?: string
+                                        properties?: any
+                                        conditions?: any
+                                        role?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            blocked?: boolean
+                            preferedLanguage?: string
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          profile?: {
+            data?: {
+              id?: number
+              attributes?: {
+                displayName?: string
+                user?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface ProfileListResponse {
+  data?: ProfileListResponseDataItem[]
+  meta?: {
+    pagination?: {
+      page?: number
+      /** @min 25 */
+      pageSize?: number
+      /** @max 1 */
+      pageCount?: number
+      total?: number
+    }
+  }
+}
+
+export interface ProfileResponseDataObject {
+  id?: number
+  attributes?: {
+    displayName?: string
+    user?: {
+      data?: {
+        id?: number
+        attributes?: {
+          username?: string
+          /** @format email */
+          email?: string
+          provider?: string
+          resetPasswordToken?: string
+          confirmationToken?: string
+          confirmed?: boolean
+          blocked?: boolean
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      action?: string
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            firstname?: string
+                            lastname?: string
+                            username?: string
+                            /** @format email */
+                            email?: string
+                            resetPasswordToken?: string
+                            registrationToken?: string
+                            isActive?: boolean
+                            roles?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  name?: string
+                                  code?: string
+                                  description?: string
+                                  users?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }[]
+                                  }
+                                  permissions?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        action?: string
+                                        subject?: string
+                                        properties?: any
+                                        conditions?: any
+                                        role?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            blocked?: boolean
+                            preferedLanguage?: string
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          profile?: {
+            data?: {
+              id?: number
+              attributes?: {
+                displayName?: string
+                user?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface ProfileResponseDataObjectLocalized {
+  id?: number
+  attributes?: {
+    displayName?: string
+    user?: {
+      data?: {
+        id?: number
+        attributes?: {
+          username?: string
+          /** @format email */
+          email?: string
+          provider?: string
+          resetPasswordToken?: string
+          confirmationToken?: string
+          confirmed?: boolean
+          blocked?: boolean
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      action?: string
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            firstname?: string
+                            lastname?: string
+                            username?: string
+                            /** @format email */
+                            email?: string
+                            resetPasswordToken?: string
+                            registrationToken?: string
+                            isActive?: boolean
+                            roles?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  name?: string
+                                  code?: string
+                                  description?: string
+                                  users?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }[]
+                                  }
+                                  permissions?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        action?: string
+                                        subject?: string
+                                        properties?: any
+                                        conditions?: any
+                                        role?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            blocked?: boolean
+                            preferedLanguage?: string
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          profile?: {
+            data?: {
+              id?: number
+              attributes?: {
+                displayName?: string
+                user?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface ProfileResponse {
+  data?: ProfileResponseDataObject
+  meta?: object
+}
+
+export interface UploadFileRequest {
+  data: {
+    name: string
+    alternativeText?: string
+    caption?: string
+    width?: number
+    height?: number
+    formats?: any
+    hash: string
+    ext?: string
+    mime: string
+    /** @format float */
+    size: number
+    url: string
+    previewUrl?: string
+    provider: string
+    provider_metadata?: any
+    related?: (number | string)[]
+    /** @example "string or id" */
+    folder?: number | string
+    folderPath: string
+  }
+}
+
+export interface UploadFileListResponseDataItem {
+  id?: number
+  attributes?: {
+    name?: string
+    alternativeText?: string
+    caption?: string
+    width?: number
+    height?: number
+    formats?: any
+    hash?: string
+    ext?: string
+    mime?: string
+    /** @format float */
+    size?: number
+    url?: string
+    previewUrl?: string
+    provider?: string
+    provider_metadata?: any
+    related?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    folder?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          pathId?: number
+          parent?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          children?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }[]
+          }
+          files?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                alternativeText?: string
+                caption?: string
+                width?: number
+                height?: number
+                formats?: any
+                hash?: string
+                ext?: string
+                mime?: string
+                /** @format float */
+                size?: number
+                url?: string
+                previewUrl?: string
+                provider?: string
+                provider_metadata?: any
+                related?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                folder?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                folderPath?: string
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          path?: string
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    folderPath?: string
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UploadFileListResponseDataItemLocalized {
+  id?: number
+  attributes?: {
+    name?: string
+    alternativeText?: string
+    caption?: string
+    width?: number
+    height?: number
+    formats?: any
+    hash?: string
+    ext?: string
+    mime?: string
+    /** @format float */
+    size?: number
+    url?: string
+    previewUrl?: string
+    provider?: string
+    provider_metadata?: any
+    related?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    folder?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          pathId?: number
+          parent?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          children?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }[]
+          }
+          files?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                alternativeText?: string
+                caption?: string
+                width?: number
+                height?: number
+                formats?: any
+                hash?: string
+                ext?: string
+                mime?: string
+                /** @format float */
+                size?: number
+                url?: string
+                previewUrl?: string
+                provider?: string
+                provider_metadata?: any
+                related?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                folder?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                folderPath?: string
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          path?: string
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    folderPath?: string
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UploadFileListResponse {
+  data?: UploadFileListResponseDataItem[]
+  meta?: {
+    pagination?: {
+      page?: number
+      /** @min 25 */
+      pageSize?: number
+      /** @max 1 */
+      pageCount?: number
+      total?: number
+    }
+  }
+}
+
+export interface UploadFileResponseDataObject {
+  id?: number
+  attributes?: {
+    name?: string
+    alternativeText?: string
+    caption?: string
+    width?: number
+    height?: number
+    formats?: any
+    hash?: string
+    ext?: string
+    mime?: string
+    /** @format float */
+    size?: number
+    url?: string
+    previewUrl?: string
+    provider?: string
+    provider_metadata?: any
+    related?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    folder?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          pathId?: number
+          parent?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          children?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }[]
+          }
+          files?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                alternativeText?: string
+                caption?: string
+                width?: number
+                height?: number
+                formats?: any
+                hash?: string
+                ext?: string
+                mime?: string
+                /** @format float */
+                size?: number
+                url?: string
+                previewUrl?: string
+                provider?: string
+                provider_metadata?: any
+                related?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                folder?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                folderPath?: string
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          path?: string
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    folderPath?: string
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UploadFileResponseDataObjectLocalized {
+  id?: number
+  attributes?: {
+    name?: string
+    alternativeText?: string
+    caption?: string
+    width?: number
+    height?: number
+    formats?: any
+    hash?: string
+    ext?: string
+    mime?: string
+    /** @format float */
+    size?: number
+    url?: string
+    previewUrl?: string
+    provider?: string
+    provider_metadata?: any
+    related?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    folder?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          pathId?: number
+          parent?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          children?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }[]
+          }
+          files?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                alternativeText?: string
+                caption?: string
+                width?: number
+                height?: number
+                formats?: any
+                hash?: string
+                ext?: string
+                mime?: string
+                /** @format float */
+                size?: number
+                url?: string
+                previewUrl?: string
+                provider?: string
+                provider_metadata?: any
+                related?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                folder?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                folderPath?: string
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          path?: string
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    folderPath?: string
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UploadFileResponse {
+  data?: UploadFileResponseDataObject
+  meta?: object
+}
+
+export interface UploadFolderRequest {
+  data: {
+    name: string
+    pathId: number
+    /** @example "string or id" */
+    parent?: number | string
+    children?: (number | string)[]
+    files?: (number | string)[]
+    path: string
+  }
+}
+
+export interface UploadFolderListResponseDataItem {
+  id?: number
+  attributes?: {
+    name?: string
+    pathId?: number
+    parent?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          pathId?: number
+          parent?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          children?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }[]
+          }
+          files?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                alternativeText?: string
+                caption?: string
+                width?: number
+                height?: number
+                formats?: any
+                hash?: string
+                ext?: string
+                mime?: string
+                /** @format float */
+                size?: number
+                url?: string
+                previewUrl?: string
+                provider?: string
+                provider_metadata?: any
+                related?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                folder?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                folderPath?: string
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          path?: string
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    children?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    files?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    path?: string
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UploadFolderListResponseDataItemLocalized {
+  id?: number
+  attributes?: {
+    name?: string
+    pathId?: number
+    parent?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          pathId?: number
+          parent?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          children?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }[]
+          }
+          files?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                alternativeText?: string
+                caption?: string
+                width?: number
+                height?: number
+                formats?: any
+                hash?: string
+                ext?: string
+                mime?: string
+                /** @format float */
+                size?: number
+                url?: string
+                previewUrl?: string
+                provider?: string
+                provider_metadata?: any
+                related?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                folder?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                folderPath?: string
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          path?: string
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    children?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    files?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    path?: string
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UploadFolderListResponse {
+  data?: UploadFolderListResponseDataItem[]
+  meta?: {
+    pagination?: {
+      page?: number
+      /** @min 25 */
+      pageSize?: number
+      /** @max 1 */
+      pageCount?: number
+      total?: number
+    }
+  }
+}
+
+export interface UploadFolderResponseDataObject {
+  id?: number
+  attributes?: {
+    name?: string
+    pathId?: number
+    parent?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          pathId?: number
+          parent?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          children?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }[]
+          }
+          files?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                alternativeText?: string
+                caption?: string
+                width?: number
+                height?: number
+                formats?: any
+                hash?: string
+                ext?: string
+                mime?: string
+                /** @format float */
+                size?: number
+                url?: string
+                previewUrl?: string
+                provider?: string
+                provider_metadata?: any
+                related?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                folder?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                folderPath?: string
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          path?: string
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    children?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    files?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    path?: string
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UploadFolderResponseDataObjectLocalized {
+  id?: number
+  attributes?: {
+    name?: string
+    pathId?: number
+    parent?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          pathId?: number
+          parent?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          children?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }[]
+          }
+          files?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                alternativeText?: string
+                caption?: string
+                width?: number
+                height?: number
+                formats?: any
+                hash?: string
+                ext?: string
+                mime?: string
+                /** @format float */
+                size?: number
+                url?: string
+                previewUrl?: string
+                provider?: string
+                provider_metadata?: any
+                related?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                folder?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                folderPath?: string
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          path?: string
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    children?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    files?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    path?: string
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UploadFolderResponse {
+  data?: UploadFolderResponseDataObject
+  meta?: object
+}
+
+export interface UsersPermissionsPermissionRequest {
+  data: {
+    action: string
+    /** @example "string or id" */
+    role?: number | string
+  }
+}
+
+export interface UsersPermissionsPermissionListResponseDataItem {
+  id?: number
+  attributes?: {
+    action?: string
+    role?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          description?: string
+          type?: string
+          permissions?: {
+            data?: {
+              id?: number
+              attributes?: {
+                action?: string
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          users?: {
+            data?: {
+              id?: number
+              attributes?: {
+                username?: string
+                /** @format email */
+                email?: string
+                provider?: string
+                resetPasswordToken?: string
+                confirmationToken?: string
+                confirmed?: boolean
+                blocked?: boolean
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                profile?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      displayName?: string
+                      user?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsPermissionListResponseDataItemLocalized {
+  id?: number
+  attributes?: {
+    action?: string
+    role?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          description?: string
+          type?: string
+          permissions?: {
+            data?: {
+              id?: number
+              attributes?: {
+                action?: string
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          users?: {
+            data?: {
+              id?: number
+              attributes?: {
+                username?: string
+                /** @format email */
+                email?: string
+                provider?: string
+                resetPasswordToken?: string
+                confirmationToken?: string
+                confirmed?: boolean
+                blocked?: boolean
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                profile?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      displayName?: string
+                      user?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsPermissionListResponse {
+  data?: UsersPermissionsPermissionListResponseDataItem[]
+  meta?: {
+    pagination?: {
+      page?: number
+      /** @min 25 */
+      pageSize?: number
+      /** @max 1 */
+      pageCount?: number
+      total?: number
+    }
+  }
+}
+
+export interface UsersPermissionsPermissionResponseDataObject {
+  id?: number
+  attributes?: {
+    action?: string
+    role?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          description?: string
+          type?: string
+          permissions?: {
+            data?: {
+              id?: number
+              attributes?: {
+                action?: string
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          users?: {
+            data?: {
+              id?: number
+              attributes?: {
+                username?: string
+                /** @format email */
+                email?: string
+                provider?: string
+                resetPasswordToken?: string
+                confirmationToken?: string
+                confirmed?: boolean
+                blocked?: boolean
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                profile?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      displayName?: string
+                      user?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsPermissionResponseDataObjectLocalized {
+  id?: number
+  attributes?: {
+    action?: string
+    role?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          description?: string
+          type?: string
+          permissions?: {
+            data?: {
+              id?: number
+              attributes?: {
+                action?: string
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          users?: {
+            data?: {
+              id?: number
+              attributes?: {
+                username?: string
+                /** @format email */
+                email?: string
+                provider?: string
+                resetPasswordToken?: string
+                confirmationToken?: string
+                confirmed?: boolean
+                blocked?: boolean
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                profile?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      displayName?: string
+                      user?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsPermissionResponse {
+  data?: UsersPermissionsPermissionResponseDataObject
+  meta?: object
+}
+
+export interface UsersPermissionsRoleRequest {
+  data: {
+    name: string
+    description?: string
+    type?: string
+    permissions?: (number | string)[]
+    users?: (number | string)[]
+  }
+}
+
+export interface UsersPermissionsRoleListResponseDataItem {
+  id?: number
+  attributes?: {
+    name?: string
+    description?: string
+    type?: string
+    permissions?: {
+      data?: {
+        id?: number
+        attributes?: {
+          action?: string
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      provider?: string
+                      resetPasswordToken?: string
+                      confirmationToken?: string
+                      confirmed?: boolean
+                      blocked?: boolean
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      profile?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            displayName?: string
+                            user?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  firstname?: string
+                                  lastname?: string
+                                  username?: string
+                                  /** @format email */
+                                  email?: string
+                                  resetPasswordToken?: string
+                                  registrationToken?: string
+                                  isActive?: boolean
+                                  roles?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        name?: string
+                                        code?: string
+                                        description?: string
+                                        users?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }[]
+                                        }
+                                        permissions?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: {
+                                              action?: string
+                                              subject?: string
+                                              properties?: any
+                                              conditions?: any
+                                              role?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                              /** @format date-time */
+                                              createdAt?: string
+                                              /** @format date-time */
+                                              updatedAt?: string
+                                              createdBy?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                              updatedBy?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                            }
+                                          }[]
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  blocked?: boolean
+                                  preferedLanguage?: string
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }[]
+    }
+    users?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsRoleListResponseDataItemLocalized {
+  id?: number
+  attributes?: {
+    name?: string
+    description?: string
+    type?: string
+    permissions?: {
+      data?: {
+        id?: number
+        attributes?: {
+          action?: string
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      provider?: string
+                      resetPasswordToken?: string
+                      confirmationToken?: string
+                      confirmed?: boolean
+                      blocked?: boolean
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      profile?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            displayName?: string
+                            user?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  firstname?: string
+                                  lastname?: string
+                                  username?: string
+                                  /** @format email */
+                                  email?: string
+                                  resetPasswordToken?: string
+                                  registrationToken?: string
+                                  isActive?: boolean
+                                  roles?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        name?: string
+                                        code?: string
+                                        description?: string
+                                        users?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }[]
+                                        }
+                                        permissions?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: {
+                                              action?: string
+                                              subject?: string
+                                              properties?: any
+                                              conditions?: any
+                                              role?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                              /** @format date-time */
+                                              createdAt?: string
+                                              /** @format date-time */
+                                              updatedAt?: string
+                                              createdBy?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                              updatedBy?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                            }
+                                          }[]
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  blocked?: boolean
+                                  preferedLanguage?: string
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }[]
+    }
+    users?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsRoleListResponse {
+  data?: UsersPermissionsRoleListResponseDataItem[]
+  meta?: {
+    pagination?: {
+      page?: number
+      /** @min 25 */
+      pageSize?: number
+      /** @max 1 */
+      pageCount?: number
+      total?: number
+    }
+  }
+}
+
+export interface UsersPermissionsRoleResponseDataObject {
+  id?: number
+  attributes?: {
+    name?: string
+    description?: string
+    type?: string
+    permissions?: {
+      data?: {
+        id?: number
+        attributes?: {
+          action?: string
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      provider?: string
+                      resetPasswordToken?: string
+                      confirmationToken?: string
+                      confirmed?: boolean
+                      blocked?: boolean
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      profile?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            displayName?: string
+                            user?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  firstname?: string
+                                  lastname?: string
+                                  username?: string
+                                  /** @format email */
+                                  email?: string
+                                  resetPasswordToken?: string
+                                  registrationToken?: string
+                                  isActive?: boolean
+                                  roles?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        name?: string
+                                        code?: string
+                                        description?: string
+                                        users?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }[]
+                                        }
+                                        permissions?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: {
+                                              action?: string
+                                              subject?: string
+                                              properties?: any
+                                              conditions?: any
+                                              role?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                              /** @format date-time */
+                                              createdAt?: string
+                                              /** @format date-time */
+                                              updatedAt?: string
+                                              createdBy?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                              updatedBy?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                            }
+                                          }[]
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  blocked?: boolean
+                                  preferedLanguage?: string
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }[]
+    }
+    users?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsRoleResponseDataObjectLocalized {
+  id?: number
+  attributes?: {
+    name?: string
+    description?: string
+    type?: string
+    permissions?: {
+      data?: {
+        id?: number
+        attributes?: {
+          action?: string
+          role?: {
+            data?: {
+              id?: number
+              attributes?: {
+                name?: string
+                description?: string
+                type?: string
+                permissions?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }[]
+                }
+                users?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      provider?: string
+                      resetPasswordToken?: string
+                      confirmationToken?: string
+                      confirmed?: boolean
+                      blocked?: boolean
+                      role?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      profile?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            displayName?: string
+                            user?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  firstname?: string
+                                  lastname?: string
+                                  username?: string
+                                  /** @format email */
+                                  email?: string
+                                  resetPasswordToken?: string
+                                  registrationToken?: string
+                                  isActive?: boolean
+                                  roles?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: {
+                                        name?: string
+                                        code?: string
+                                        description?: string
+                                        users?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }[]
+                                        }
+                                        permissions?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: {
+                                              action?: string
+                                              subject?: string
+                                              properties?: any
+                                              conditions?: any
+                                              role?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                              /** @format date-time */
+                                              createdAt?: string
+                                              /** @format date-time */
+                                              updatedAt?: string
+                                              createdBy?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                              updatedBy?: {
+                                                data?: {
+                                                  id?: number
+                                                  attributes?: object
+                                                }
+                                              }
+                                            }
+                                          }[]
+                                        }
+                                        /** @format date-time */
+                                        createdAt?: string
+                                        /** @format date-time */
+                                        updatedAt?: string
+                                        createdBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                        updatedBy?: {
+                                          data?: {
+                                            id?: number
+                                            attributes?: object
+                                          }
+                                        }
+                                      }
+                                    }[]
+                                  }
+                                  blocked?: boolean
+                                  preferedLanguage?: string
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }[]
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }[]
+    }
+    users?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }[]
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsRoleResponse {
+  data?: UsersPermissionsRoleResponseDataObject
+  meta?: object
+}
+
+export interface UsersPermissionsUserRequest {
+  data: {
+    username: string
+    /** @format email */
+    email: string
+    provider?: string
+    /**
+     * @format password
+     * @example "*******"
+     */
+    password?: string
+    resetPasswordToken?: string
+    confirmationToken?: string
+    confirmed?: boolean
+    blocked?: boolean
+    /** @example "string or id" */
+    role?: number | string
+    /** @example "string or id" */
+    profile?: number | string
+  }
+}
+
+export interface UsersPermissionsUserListResponseDataItem {
+  id?: number
+  attributes?: {
+    username?: string
+    /** @format email */
+    email?: string
+    provider?: string
+    resetPasswordToken?: string
+    confirmationToken?: string
+    confirmed?: boolean
+    blocked?: boolean
+    role?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          description?: string
+          type?: string
+          permissions?: {
+            data?: {
+              id?: number
+              attributes?: {
+                action?: string
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          users?: {
+            data?: {
+              id?: number
+              attributes?: {
+                username?: string
+                /** @format email */
+                email?: string
+                provider?: string
+                resetPasswordToken?: string
+                confirmationToken?: string
+                confirmed?: boolean
+                blocked?: boolean
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                profile?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      displayName?: string
+                      user?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    profile?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsUserListResponseDataItemLocalized {
+  id?: number
+  attributes?: {
+    username?: string
+    /** @format email */
+    email?: string
+    provider?: string
+    resetPasswordToken?: string
+    confirmationToken?: string
+    confirmed?: boolean
+    blocked?: boolean
+    role?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          description?: string
+          type?: string
+          permissions?: {
+            data?: {
+              id?: number
+              attributes?: {
+                action?: string
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          users?: {
+            data?: {
+              id?: number
+              attributes?: {
+                username?: string
+                /** @format email */
+                email?: string
+                provider?: string
+                resetPasswordToken?: string
+                confirmationToken?: string
+                confirmed?: boolean
+                blocked?: boolean
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                profile?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      displayName?: string
+                      user?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    profile?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsUserListResponse {
+  data?: UsersPermissionsUserListResponseDataItem[]
+  meta?: {
+    pagination?: {
+      page?: number
+      /** @min 25 */
+      pageSize?: number
+      /** @max 1 */
+      pageCount?: number
+      total?: number
+    }
+  }
+}
+
+export interface UsersPermissionsUserResponseDataObject {
+  id?: number
+  attributes?: {
+    username?: string
+    /** @format email */
+    email?: string
+    provider?: string
+    resetPasswordToken?: string
+    confirmationToken?: string
+    confirmed?: boolean
+    blocked?: boolean
+    role?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          description?: string
+          type?: string
+          permissions?: {
+            data?: {
+              id?: number
+              attributes?: {
+                action?: string
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          users?: {
+            data?: {
+              id?: number
+              attributes?: {
+                username?: string
+                /** @format email */
+                email?: string
+                provider?: string
+                resetPasswordToken?: string
+                confirmationToken?: string
+                confirmed?: boolean
+                blocked?: boolean
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                profile?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      displayName?: string
+                      user?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    profile?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsUserResponseDataObjectLocalized {
+  id?: number
+  attributes?: {
+    username?: string
+    /** @format email */
+    email?: string
+    provider?: string
+    resetPasswordToken?: string
+    confirmationToken?: string
+    confirmed?: boolean
+    blocked?: boolean
+    role?: {
+      data?: {
+        id?: number
+        attributes?: {
+          name?: string
+          description?: string
+          type?: string
+          permissions?: {
+            data?: {
+              id?: number
+              attributes?: {
+                action?: string
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      firstname?: string
+                      lastname?: string
+                      username?: string
+                      /** @format email */
+                      email?: string
+                      resetPasswordToken?: string
+                      registrationToken?: string
+                      isActive?: boolean
+                      roles?: {
+                        data?: {
+                          id?: number
+                          attributes?: {
+                            name?: string
+                            code?: string
+                            description?: string
+                            users?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }[]
+                            }
+                            permissions?: {
+                              data?: {
+                                id?: number
+                                attributes?: {
+                                  action?: string
+                                  subject?: string
+                                  properties?: any
+                                  conditions?: any
+                                  role?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  /** @format date-time */
+                                  createdAt?: string
+                                  /** @format date-time */
+                                  updatedAt?: string
+                                  createdBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                  updatedBy?: {
+                                    data?: {
+                                      id?: number
+                                      attributes?: object
+                                    }
+                                  }
+                                }
+                              }[]
+                            }
+                            /** @format date-time */
+                            createdAt?: string
+                            /** @format date-time */
+                            updatedAt?: string
+                            createdBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                            updatedBy?: {
+                              data?: {
+                                id?: number
+                                attributes?: object
+                              }
+                            }
+                          }
+                        }[]
+                      }
+                      blocked?: boolean
+                      preferedLanguage?: string
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          users?: {
+            data?: {
+              id?: number
+              attributes?: {
+                username?: string
+                /** @format email */
+                email?: string
+                provider?: string
+                resetPasswordToken?: string
+                confirmationToken?: string
+                confirmed?: boolean
+                blocked?: boolean
+                role?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                profile?: {
+                  data?: {
+                    id?: number
+                    attributes?: {
+                      displayName?: string
+                      user?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      /** @format date-time */
+                      createdAt?: string
+                      /** @format date-time */
+                      updatedAt?: string
+                      createdBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                      updatedBy?: {
+                        data?: {
+                          id?: number
+                          attributes?: object
+                        }
+                      }
+                    }
+                  }
+                }
+                /** @format date-time */
+                createdAt?: string
+                /** @format date-time */
+                updatedAt?: string
+                createdBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+                updatedBy?: {
+                  data?: {
+                    id?: number
+                    attributes?: object
+                  }
+                }
+              }
+            }[]
+          }
+          /** @format date-time */
+          createdAt?: string
+          /** @format date-time */
+          updatedAt?: string
+          createdBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+          updatedBy?: {
+            data?: {
+              id?: number
+              attributes?: object
+            }
+          }
+        }
+      }
+    }
+    profile?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    /** @format date-time */
+    createdAt?: string
+    /** @format date-time */
+    updatedAt?: string
+    createdBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+    updatedBy?: {
+      data?: {
+        id?: number
+        attributes?: object
+      }
+    }
+  }
+}
+
+export interface UsersPermissionsUserResponse {
+  data?: UsersPermissionsUserResponseDataObject
+  meta?: object
+}
+
+export interface UsersPermissionsRole {
+  id?: number
+  name?: string
+  description?: string
+  type?: string
+  createdAt?: datetime
+  updatedAt?: datetime
+}
+
+export interface UsersPermissionsUser {
+  /** @example 1 */
+  id?: number
+  /** @example "foo.bar" */
+  username?: string
+  /** @example "foo.bar@strapi.io" */
+  email?: string
+  /** @example "local" */
+  provider?: string
+  /** @example true */
+  confirmed?: boolean
+  /** @example false */
+  blocked?: boolean
+  /** @example "2022-06-02T08:32:06.258Z" */
+  createdAt?: datetime
+  /** @example "2022-06-02T08:32:06.267Z" */
+  updatedAt?: datetime
+}
+
+export interface UsersPermissionsUserRegistration {
+  /** @example "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c" */
+  jwt?: string
+  user?: UsersPermissionsUser
+}
+
+export type UsersPermissionsPermissionsTree = Record<
+  string,
+  {
+    /** every controller of the api */
+    controllers?: Record<
+      string,
+      Record<
+        string,
+        {
+          enabled?: boolean
+          policy?: string
+        }
+      >
+    >
+  }
+>
+
+export type QueryParamsType = Record<string | number, any>
+export type ResponseFormat = keyof Omit<Body, 'body' | 'bodyUsed'>
+
+export interface FullRequestParams extends Omit<RequestInit, 'body'> {
+  /** set parameter to `true` for call `securityWorker` for this request */
+  secure?: boolean
+  /** request path */
+  path: string
+  /** content type of request body */
+  type?: ContentType
+  /** query params */
+  query?: QueryParamsType
+  /** format of response (i.e. response.json() -> format: "json") */
+  format?: ResponseFormat
+  /** request body */
+  body?: unknown
+  /** base url */
+  baseUrl?: string
+  /** request cancellation token */
+  cancelToken?: CancelToken
+}
+
+export type RequestParams = Omit<
+  FullRequestParams,
+  'body' | 'method' | 'query' | 'path'
+>
+
+export interface ApiConfig<SecurityDataType = unknown> {
+  baseUrl?: string
+  baseApiParams?: Omit<RequestParams, 'baseUrl' | 'cancelToken' | 'signal'>
+  securityWorker?: (
+    securityData: SecurityDataType | null,
+  ) => Promise<RequestParams | void> | RequestParams | void
+  customFetch?: typeof fetch
+}
+
+export interface HttpResponse<D extends unknown, E extends unknown = unknown>
+  extends Response {
+  data: D
+  error: E
+}
+
+type CancelToken = Symbol | string | number
+
+export enum ContentType {
+  Json = 'application/json',
+  FormData = 'multipart/form-data',
+  UrlEncoded = 'application/x-www-form-urlencoded',
+  Text = 'text/plain',
+}
+
+export class HttpClient<SecurityDataType = unknown> {
+  public baseUrl: string = 'http://localhost:1337/api'
+  private securityData: SecurityDataType | null = null
+  private securityWorker?: ApiConfig<SecurityDataType>['securityWorker']
+  private abortControllers = new Map<CancelToken, AbortController>()
+  private customFetch = (...fetchParams: Parameters<typeof fetch>) =>
+    fetch(...fetchParams)
+
+  private baseApiParams: RequestParams = {
+    credentials: 'same-origin',
+    headers: {},
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+  }
+
+  constructor(apiConfig: ApiConfig<SecurityDataType> = {}) {
+    Object.assign(this, apiConfig)
+  }
+
+  public setSecurityData = (data: SecurityDataType | null) => {
+    this.securityData = data
+  }
+
+  protected encodeQueryParam(key: string, value: any) {
+    const encodedKey = encodeURIComponent(key)
+    return `${encodedKey}=${encodeURIComponent(
+      typeof value === 'number' ? value : `${value}`,
+    )}`
+  }
+
+  protected addQueryParam(query: QueryParamsType, key: string) {
+    return this.encodeQueryParam(key, query[key])
+  }
+
+  protected addArrayQueryParam(query: QueryParamsType, key: string) {
+    const value = query[key]
+    return value.map((v: any) => this.encodeQueryParam(key, v)).join('&')
+  }
+
+  protected toQueryString(rawQuery?: QueryParamsType): string {
+    const query = rawQuery || {}
+    const keys = Object.keys(query).filter(
+      (key) => 'undefined' !== typeof query[key],
+    )
+    return keys
+      .map((key) =>
+        Array.isArray(query[key])
+          ? this.addArrayQueryParam(query, key)
+          : this.addQueryParam(query, key),
+      )
+      .join('&')
+  }
+
+  protected addQueryParams(rawQuery?: QueryParamsType): string {
+    const queryString = this.toQueryString(rawQuery)
+    return queryString ? `?${queryString}` : ''
+  }
+
+  private contentFormatters: Record<ContentType, (input: any) => any> = {
+    [ContentType.Json]: (input: any) =>
+      input !== null && (typeof input === 'object' || typeof input === 'string')
+        ? JSON.stringify(input)
+        : input,
+    [ContentType.Text]: (input: any) =>
+      input !== null && typeof input !== 'string'
+        ? JSON.stringify(input)
+        : input,
+    [ContentType.FormData]: (input: any) =>
+      Object.keys(input || {}).reduce((formData, key) => {
+        const property = input[key]
+        formData.append(
+          key,
+          property instanceof Blob
+            ? property
+            : typeof property === 'object' && property !== null
+            ? JSON.stringify(property)
+            : `${property}`,
+        )
+        return formData
+      }, new FormData()),
+    [ContentType.UrlEncoded]: (input: any) => this.toQueryString(input),
+  }
+
+  protected mergeRequestParams(
+    params1: RequestParams,
+    params2?: RequestParams,
+  ): RequestParams {
+    return {
+      ...this.baseApiParams,
+      ...params1,
+      ...(params2 || {}),
+      headers: {
+        ...(this.baseApiParams.headers || {}),
+        ...(params1.headers || {}),
+        ...((params2 && params2.headers) || {}),
+      },
+    }
+  }
+
+  protected createAbortSignal = (
+    cancelToken: CancelToken,
+  ): AbortSignal | undefined => {
+    if (this.abortControllers.has(cancelToken)) {
+      const abortController = this.abortControllers.get(cancelToken)
+      if (abortController) {
+        return abortController.signal
+      }
+      return void 0
+    }
+
+    const abortController = new AbortController()
+    this.abortControllers.set(cancelToken, abortController)
+    return abortController.signal
+  }
+
+  public abortRequest = (cancelToken: CancelToken) => {
+    const abortController = this.abortControllers.get(cancelToken)
+
+    if (abortController) {
+      abortController.abort()
+      this.abortControllers.delete(cancelToken)
+    }
+  }
+
+  public request = async <T = any, E = any>({
+    body,
+    secure,
+    path,
+    type,
+    query,
+    format,
+    baseUrl,
+    cancelToken,
+    ...params
+  }: FullRequestParams): Promise<HttpResponse<T, E>> => {
+    const secureParams =
+      ((typeof secure === 'boolean' ? secure : this.baseApiParams.secure) &&
+        this.securityWorker &&
+        (await this.securityWorker(this.securityData))) ||
+      {}
+    const requestParams = this.mergeRequestParams(params, secureParams)
+    const queryString = query && this.toQueryString(query)
+    const payloadFormatter = this.contentFormatters[type || ContentType.Json]
+    const responseFormat = format || requestParams.format
+
+    return this.customFetch(
+      `${baseUrl || this.baseUrl || ''}${path}${
+        queryString ? `?${queryString}` : ''
+      }`,
+      {
+        ...requestParams,
+        headers: {
+          ...(requestParams.headers || {}),
+          ...(type && type !== ContentType.FormData
+            ? { 'Content-Type': type }
+            : {}),
+        },
+        signal: cancelToken
+          ? this.createAbortSignal(cancelToken)
+          : requestParams.signal,
+        body:
+          typeof body === 'undefined' || body === null
+            ? null
+            : payloadFormatter(body),
+      },
+    ).then(async (response) => {
+      const r = response as HttpResponse<T, E>
+      r.data = null as unknown as T
+      r.error = null as unknown as E
+
+      const data = !responseFormat
+        ? r
+        : await response[responseFormat]()
+            .then((data) => {
+              if (r.ok) {
+                r.data = data
+              } else {
+                r.error = data
+              }
+              return r
+            })
+            .catch((e) => {
+              r.error = e
+              return r
+            })
+
+      if (cancelToken) {
+        this.abortControllers.delete(cancelToken)
+      }
+
+      if (!response.ok) throw data
+      return data
+    })
+  }
+}
+
+/**
+ * @title DOCUMENTATION
+ * @version 1.0.0
+ * @license Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.html)
+ * @termsOfService YOUR_TERMS_OF_SERVICE_URL
+ * @baseUrl http://localhost:1337/api
+ * @externalDocs https://docs.strapi.io/developer-docs/latest/getting-started/introduction.html
+ * @contact TEAM <contact-email@something.io> (mywebsite.io)
+ */
+export class Api<
+  SecurityDataType extends unknown,
+> extends HttpClient<SecurityDataType> {
+  posts = {
+    /**
+     * No description
+     *
+     * @tags Post
+     * @name GetPosts
+     * @request GET:/posts
+     * @secure
+     */
+    getPosts: (
+      query?: {
+        /** Sort by attributes ascending (asc) or descending (desc) */
+        sort?: string
+        /** Return page/pageSize (default: true) */
+        'pagination[withCount]'?: boolean
+        /** Page number (default: 0) */
+        'pagination[page]'?: number
+        /** Page size (default: 25) */
+        'pagination[pageSize]'?: number
+        /** Offset value (default: 0) */
+        'pagination[start]'?: number
+        /** Number of entities to return (default: 25) */
+        'pagination[limit]'?: number
+        /** Fields to return (ex: title,author) */
+        fields?: string
+        /** Relations to return */
+        populate?: string
+        /** Filters to apply */
+        filters?: object
+        /** Locale to apply */
+        locale?: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<PostListResponse, Error>({
+        path: `/posts`,
+        method: 'GET',
+        query: query,
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Post
+     * @name PostPosts
+     * @request POST:/posts
+     * @secure
+     */
+    postPosts: (data: PostRequest, params: RequestParams = {}) =>
+      this.request<PostResponse, Error>({
+        path: `/posts`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Post
+     * @name GetPostsId
+     * @request GET:/posts/{id}
+     * @secure
+     */
+    getPostsId: (id: number, params: RequestParams = {}) =>
+      this.request<PostResponse, Error>({
+        path: `/posts/${id}`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Post
+     * @name PutPostsId
+     * @request PUT:/posts/{id}
+     * @secure
+     */
+    putPostsId: (id: number, data: PostRequest, params: RequestParams = {}) =>
+      this.request<PostResponse, Error>({
+        path: `/posts/${id}`,
+        method: 'PUT',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Post
+     * @name DeletePostsId
+     * @request DELETE:/posts/{id}
+     * @secure
+     */
+    deletePostsId: (id: number, params: RequestParams = {}) =>
+      this.request<number, Error>({
+        path: `/posts/${id}`,
+        method: 'DELETE',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+  }
+  profiles = {
+    /**
+     * No description
+     *
+     * @tags Profile
+     * @name GetProfiles
+     * @request GET:/profiles
+     * @secure
+     */
+    getProfiles: (
+      query?: {
+        /** Sort by attributes ascending (asc) or descending (desc) */
+        sort?: string
+        /** Return page/pageSize (default: true) */
+        'pagination[withCount]'?: boolean
+        /** Page number (default: 0) */
+        'pagination[page]'?: number
+        /** Page size (default: 25) */
+        'pagination[pageSize]'?: number
+        /** Offset value (default: 0) */
+        'pagination[start]'?: number
+        /** Number of entities to return (default: 25) */
+        'pagination[limit]'?: number
+        /** Fields to return (ex: title,author) */
+        fields?: string
+        /** Relations to return */
+        populate?: string
+        /** Filters to apply */
+        filters?: object
+        /** Locale to apply */
+        locale?: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<ProfileListResponse, Error>({
+        path: `/profiles`,
+        method: 'GET',
+        query: query,
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Profile
+     * @name PostProfiles
+     * @request POST:/profiles
+     * @secure
+     */
+    postProfiles: (data: ProfileRequest, params: RequestParams = {}) =>
+      this.request<ProfileResponse, Error>({
+        path: `/profiles`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Profile
+     * @name GetProfilesId
+     * @request GET:/profiles/{id}
+     * @secure
+     */
+    getProfilesId: (id: number, params: RequestParams = {}) =>
+      this.request<ProfileResponse, Error>({
+        path: `/profiles/${id}`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Profile
+     * @name PutProfilesId
+     * @request PUT:/profiles/{id}
+     * @secure
+     */
+    putProfilesId: (
+      id: number,
+      data: ProfileRequest,
+      params: RequestParams = {},
+    ) =>
+      this.request<ProfileResponse, Error>({
+        path: `/profiles/${id}`,
+        method: 'PUT',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Profile
+     * @name DeleteProfilesId
+     * @request DELETE:/profiles/{id}
+     * @secure
+     */
+    deleteProfilesId: (id: number, params: RequestParams = {}) =>
+      this.request<number, Error>({
+        path: `/profiles/${id}`,
+        method: 'DELETE',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+  }
+  upload = {
+    /**
+     * No description
+     *
+     * @tags Upload - File
+     * @name GetUploadFiles
+     * @request GET:/upload/files
+     * @secure
+     */
+    getUploadFiles: (
+      query?: {
+        /** Sort by attributes ascending (asc) or descending (desc) */
+        sort?: string
+        /** Return page/pageSize (default: true) */
+        'pagination[withCount]'?: boolean
+        /** Page number (default: 0) */
+        'pagination[page]'?: number
+        /** Page size (default: 25) */
+        'pagination[pageSize]'?: number
+        /** Offset value (default: 0) */
+        'pagination[start]'?: number
+        /** Number of entities to return (default: 25) */
+        'pagination[limit]'?: number
+        /** Fields to return (ex: title,author) */
+        fields?: string
+        /** Relations to return */
+        populate?: string
+        /** Filters to apply */
+        filters?: object
+        /** Locale to apply */
+        locale?: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<UploadFileListResponse, Error>({
+        path: `/upload/files`,
+        method: 'GET',
+        query: query,
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Upload - File
+     * @name GetUploadFilesId
+     * @request GET:/upload/files/{id}
+     * @secure
+     */
+    getUploadFilesId: (id: number, params: RequestParams = {}) =>
+      this.request<UploadFileResponse, Error>({
+        path: `/upload/files/${id}`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Upload - File
+     * @name DeleteUploadFilesId
+     * @request DELETE:/upload/files/{id}
+     * @secure
+     */
+    deleteUploadFilesId: (id: number, params: RequestParams = {}) =>
+      this.request<number, Error>({
+        path: `/upload/files/${id}`,
+        method: 'DELETE',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+  }
+  usersPermissions = {
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name PermissionsList
+     * @summary Get default generated permissions
+     * @request GET:/users-permissions/permissions
+     * @secure
+     */
+    permissionsList: (params: RequestParams = {}) =>
+      this.request<
+        {
+          permissions?: UsersPermissionsPermissionsTree
+        },
+        Error
+      >({
+        path: `/users-permissions/permissions`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name RolesDetail
+     * @summary Get a role
+     * @request GET:/users-permissions/roles/{id}
+     * @secure
+     */
+    rolesDetail: (id: string, params: RequestParams = {}) =>
+      this.request<
+        {
+          role?: UsersPermissionsRole
+        },
+        Error
+      >({
+        path: `/users-permissions/roles/${id}`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name RolesList
+     * @summary List roles
+     * @request GET:/users-permissions/roles
+     * @secure
+     */
+    rolesList: (params: RequestParams = {}) =>
+      this.request<
+        {
+          roles?: (UsersPermissionsRole & {
+            nb_users?: number
+          })[]
+        },
+        Error
+      >({
+        path: `/users-permissions/roles`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name RolesCreate
+     * @summary Create a role
+     * @request POST:/users-permissions/roles
+     * @secure
+     */
+    rolesCreate: (
+      data: {
+        name?: string
+        description?: string
+        type?: string
+        permissions?: UsersPermissionsPermissionsTree
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          ok?: 'true'
+        },
+        Error
+      >({
+        path: `/users-permissions/roles`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name RolesUpdate
+     * @summary Update a role
+     * @request PUT:/users-permissions/roles/{role}
+     * @secure
+     */
+    rolesUpdate: (
+      role: string,
+      data: {
+        name?: string
+        description?: string
+        type?: string
+        permissions?: UsersPermissionsPermissionsTree
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          ok?: 'true'
+        },
+        Error
+      >({
+        path: `/users-permissions/roles/${role}`,
+        method: 'PUT',
+        body: data,
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name RolesDelete
+     * @summary Delete a role
+     * @request DELETE:/users-permissions/roles/{role}
+     * @secure
+     */
+    rolesDelete: (role: string, params: RequestParams = {}) =>
+      this.request<
+        {
+          ok?: 'true'
+        },
+        Error
+      >({
+        path: `/users-permissions/roles/${role}`,
+        method: 'DELETE',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+  }
+  users = {
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name CountList
+     * @summary Get user count
+     * @request GET:/users/count
+     * @secure
+     */
+    countList: (params: RequestParams = {}) =>
+      this.request<number, Error>({
+        path: `/users/count`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name UsersList
+     * @summary Get list of users
+     * @request GET:/users
+     * @secure
+     */
+    usersList: (params: RequestParams = {}) =>
+      this.request<UsersPermissionsUser[], Error>({
+        path: `/users`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name UsersCreate
+     * @summary Create a user
+     * @request POST:/users
+     * @secure
+     */
+    usersCreate: (
+      data: {
+        email: string
+        username: string
+        password: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        UsersPermissionsUser & {
+          role?: UsersPermissionsRole
+        },
+        Error
+      >({
+        path: `/users`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name GetUsers
+     * @summary Get authenticated user info
+     * @request GET:/users/me
+     * @secure
+     */
+    getUsers: (params: RequestParams = {}) =>
+      this.request<UsersPermissionsUser, Error>({
+        path: `/users/me`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name UsersDetail
+     * @summary Get a user
+     * @request GET:/users/{id}
+     * @secure
+     */
+    usersDetail: (id: string, params: RequestParams = {}) =>
+      this.request<UsersPermissionsUser, Error>({
+        path: `/users/${id}`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name UsersUpdate
+     * @summary Update a user
+     * @request PUT:/users/{id}
+     * @secure
+     */
+    usersUpdate: (
+      id: string,
+      data: {
+        email: string
+        username: string
+        password: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        UsersPermissionsUser & {
+          role?: UsersPermissionsRole
+        },
+        Error
+      >({
+        path: `/users/${id}`,
+        method: 'PUT',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Users & Roles
+     * @name UsersDelete
+     * @summary Delete a user
+     * @request DELETE:/users/{id}
+     * @secure
+     */
+    usersDelete: (id: string, params: RequestParams = {}) =>
+      this.request<UsersPermissionsUser, Error>({
+        path: `/users/${id}`,
+        method: 'DELETE',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+  }
+  connect = {
+    /**
+     * @description Redirects to provider login before being redirect to /auth/{provider}/callback
+     *
+     * @tags Users-Permissions - Auth
+     * @name List
+     * @summary Login with a provider
+     * @request GET:/connect/(.*)
+     * @secure
+     */
+    list: (params: RequestParams = {}) =>
+      this.request<any, void | Error>({
+        path: `/connect/(.*)`,
+        method: 'GET',
+        secure: true,
+        ...params,
+      }),
+  }
+  auth = {
+    /**
+     * @description Returns a jwt token and user info
+     *
+     * @tags Users-Permissions - Auth
+     * @name LocalCreate
+     * @summary Local login
+     * @request POST:/auth/local
+     * @secure
+     */
+    localCreate: (
+      data: {
+        identifier?: string
+        password?: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<UsersPermissionsUserRegistration, Error>({
+        path: `/auth/local`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * @description Returns a jwt token and user info
+     *
+     * @tags Users-Permissions - Auth
+     * @name LocalRegisterCreate
+     * @summary Register a user
+     * @request POST:/auth/local/register
+     * @secure
+     */
+    localRegisterCreate: (
+      data: {
+        username?: string
+        email?: string
+        password?: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<UsersPermissionsUserRegistration, Error>({
+        path: `/auth/local/register`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Auth
+     * @name CallbackDetail
+     * @summary Default Callback from provider auth
+     * @request GET:/auth/{provider}/callback
+     * @secure
+     */
+    callbackDetail: (provider: string, params: RequestParams = {}) =>
+      this.request<UsersPermissionsUserRegistration, Error>({
+        path: `/auth/${provider}/callback`,
+        method: 'GET',
+        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Auth
+     * @name ForgotPasswordCreate
+     * @summary Send rest password email
+     * @request POST:/auth/forgot-password
+     * @secure
+     */
+    forgotPasswordCreate: (
+      data: {
+        email?: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          ok?: 'true'
+        },
+        Error
+      >({
+        path: `/auth/forgot-password`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Auth
+     * @name ResetPasswordCreate
+     * @summary Rest user password
+     * @request POST:/auth/reset-password
+     * @secure
+     */
+    resetPasswordCreate: (
+      data: {
+        password?: string
+        passwordConfirmation?: string
+        code?: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<UsersPermissionsUserRegistration, Error>({
+        path: `/auth/reset-password`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Auth
+     * @name ChangePasswordCreate
+     * @summary Update user's own password
+     * @request POST:/auth/change-password
+     * @secure
+     */
+    changePasswordCreate: (
+      data: {
+        password: string
+        currentPassword: string
+        passwordConfirmation: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<UsersPermissionsUserRegistration, Error>({
+        path: `/auth/change-password`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Auth
+     * @name EmailConfirmationList
+     * @summary Confirm user email
+     * @request GET:/auth/email-confirmation
+     * @secure
+     */
+    emailConfirmationList: (
+      query?: {
+        /** confirmation token received by email */
+        confirmation?: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<any, void | Error>({
+        path: `/auth/email-confirmation`,
+        method: 'GET',
+        query: query,
+        secure: true,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users-Permissions - Auth
+     * @name SendEmailConfirmationCreate
+     * @summary Send confirmation email
+     * @request POST:/auth/send-email-confirmation
+     * @secure
+     */
+    sendEmailConfirmationCreate: (
+      data: {
+        email?: string
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          email?: string
+          sent?: 'true'
+        },
+        Error
+      >({
+        path: `/auth/send-email-confirmation`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+  }
+}
