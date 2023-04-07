@@ -25,7 +25,9 @@ export const useUserStore = defineStore('user', {
     async login (input: { identifier: string, password: string }) {
       const jwt = useCookie('jwt')
       const { data, error } =
-        await useAxios<UsersPermissionsUserRegistration>('post', '/auth/local', input)
+        await useAxios<UsersPermissionsUserRegistration>('post', '/auth/local', {
+          data: input,
+        })
 
       if (error) {
         return error
