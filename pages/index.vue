@@ -13,9 +13,6 @@
 import { usePostStore } from '~/store/usePostStore'
 import PostSingle from '~/components/post/PostSingle.vue'
 
-const config = useRuntimeConfig()
-console.log(config)
-
 const postStore = usePostStore()
 await postStore.fetch()
 </script>
