@@ -1,18 +1,10 @@
 <template>
   <LayoutContainer class="my-10 grid grid-cols-3 gap-5">
-    <PostSingle
-      v-for="post in postStore.posts"
-      :key="post.id"
-      :post="post.attributes"
-      class="text-center p-5 shadow rounded-l"
-    />
+    <h1 class="text-xl">
+      Homepage
+    </h1>
   </LayoutContainer>
 </template>
 
 <script lang="ts" setup>
-import { usePostStore } from '~/store/usePostStore'
-import PostSingle from '~/components/post/PostSingle.vue'
-
-const postStore = usePostStore()
-await postStore.fetch()
 </script>
