@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, Method } from 'axios'
+import { serverError } from '~/constants/errors'
 
 export const useAxios = async <T>(
   method: Method,
@@ -22,6 +23,6 @@ export const useAxios = async <T>(
 
     return { data: response.data }
   } catch (error) {
-    return { error }
+    throw createError(serverError)
   }
 }

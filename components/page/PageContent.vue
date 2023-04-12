@@ -12,7 +12,7 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    title?: string
+    title?: string,
   }>(),
   {
     title: '',

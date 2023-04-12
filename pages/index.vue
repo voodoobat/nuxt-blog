@@ -5,6 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-// const router = useRouter()
-// router.push({ path: '/posts' })
+const router = useRouter()
+router.push({ path: '/posts' })
 </script>

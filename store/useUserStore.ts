@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { useAxios } from '~/services/axios.service'
 import { UsersPermissionsUser, UsersPermissionsUserRegistration } from '~/generated/schema'
+import { notFoundError } from '~/constants/errors'
 
 export const useUserStore = defineStore('user', {
   state: () => <{ user: UsersPermissionsUser }>({
@@ -15,7 +16,7 @@ export const useUserStore = defineStore('user', {
           await useAxios<UsersPermissionsUser>('get', '/users/me')
 
         if (error) {
-          console.error(error)
+          throw createError(notFoundError)
         }
 
         this.user = data || {}

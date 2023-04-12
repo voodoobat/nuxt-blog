@@ -5,19 +5,10 @@ export default defineNuxtConfig({
     public: { API_URL: process.env.API_URL },
   },
   modules: [
-    '@nuxtjs/apollo',
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/svg-sprite',
   ],
-  apollo: {
-    clients: {
-      default: {
-        tokenName: 'jwt',
-        httpEndpoint: process.env.GRAPHQL_URL || 'http://localhost/graphql',
-      },
-    },
-  },
   svgSprite: {
     input: '~/assets/icons',
     output: '~/assets/generated/icons',
