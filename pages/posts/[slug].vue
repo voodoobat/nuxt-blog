@@ -1,7 +1,7 @@
 <template>
-  <LayoutContainer>
+  <PageContent :title="postStore.post.attributes?.title">
     <h1>Post</h1>
-  </LayoutContainer>
+  </PageContent>
 </template>
 
 <script setup lang="ts">
