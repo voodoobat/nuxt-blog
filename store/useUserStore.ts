@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { useAxios } from '~/services/axios.service'
-import { UsersPermissionsUser, UsersPermissionsUserRegistration } from '~/generated/schema'
+import { UsersPermissionsUser, UsersPermissionsUserRegistration } from '~/types/generated/schema'
 import { notFoundError } from '~/constants/errors'
 
 export const useUserStore = defineStore('user', {
@@ -12,8 +12,7 @@ export const useUserStore = defineStore('user', {
       const jwt = useCookie('jwt')
 
       if (jwt.value) {
-        const { data, error } =
-          await useAxios<UsersPermissionsUser>('get', '/users/me')
+        const { data, error } = await useAxios<UsersPermissionsUser>('get', '/users/me')
 
         if (error) {
           throw createError(notFoundError)
@@ -25,10 +24,9 @@ export const useUserStore = defineStore('user', {
 
     async login (input: { identifier: string, password: string }) {
       const jwt = useCookie('jwt')
-      const { data, error } =
-        await useAxios<UsersPermissionsUserRegistration>('post', '/auth/local', {
-          data: input,
-        })
+      const { data, error } = await useAxios<UsersPermissionsUserRegistration>('post', '/auth/local', {
+        data: input,
+      })
 
       if (error) {
         return error

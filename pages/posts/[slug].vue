@@ -9,5 +9,9 @@ import { usePostStore } from '~/store/usePostStore'
 
 const route = useRoute()
 const postStore = usePostStore()
-await postStore.fetchOne(route.params.slug.toString())
+await postStore.fetchOneBySlug(route.params.slug.toString())
+await postStore.filter({
+  name: { $eq: 'black' },
+  content: { $eq: 'black' },
+})
 </script>

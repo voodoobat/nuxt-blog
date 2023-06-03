@@ -6,7 +6,7 @@
       :placeholder="placeholder"
       :required="required"
       class="input_input"
-      @input="$emit('update:value', $event.target.value)"
+      @input="$emit('update:value', $event.target?.value)"
       @focus="$emit('focus', $event.target)"
     >
   </div>

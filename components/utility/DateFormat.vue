@@ -9,10 +9,11 @@ import dayjs from 'dayjs'
 
 const props = withDefaults(
   defineProps<{
-    src: string
+    src?: string
     format?: string
   }>(),
   {
+    src: '',
     format: 'DD.MM.YYYY',
   },
 )

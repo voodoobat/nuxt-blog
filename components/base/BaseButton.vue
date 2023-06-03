@@ -33,7 +33,10 @@ withDefaults(
 
   &:disabled,
   &.is-disabled {
-    @apply bg-gray-300 border-gray-300;
+    @apply
+      bg-gray-300
+      border-gray-300
+      pointer-events-none;
   }
 }
 </style>

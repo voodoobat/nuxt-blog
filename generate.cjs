@@ -6,6 +6,6 @@ dotenv.config({ path: '.env' })
 
 generateApi({
   name: 'schema.d.ts',
-  output: path.resolve(process.cwd(), './generated'),
+  output: path.resolve(process.cwd(), './types/generated'),
   url: process.env.API_SCHEME_URL,
 })

@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
-import { PostListResponse, PostResponseDataObject } from '~/generated/schema'
+import { PostListResponse, PostResponseDataObject } from '~/types/generated/schema'
+import { EntityFilters } from '~/types/common'
 import { useAxios } from '~/services/axios.service'
-import { notFoundError, serverError } from '~/constants/errors'
+import { notFoundError } from '~/constants/errors'
 
 export const usePostStore = defineStore('posts', {
   state: () => <{
@@ -17,14 +18,17 @@ export const usePostStore = defineStore('posts', {
       this.posts = data?.data || []
     },
 
-    async fetchOne (slug: string) {
+    async filter (filters: EntityFilters) {
       const { data } = await useAxios<PostListResponse>('get', '/posts', {
-        params: {
-          filters: {
-            slug: { $eq: slug },
-          },
-        },
+        params: { filters },
       })
+
+      this.posts = data?.data || []
+    },
+
+    async fetchOneBySlug (slug: string) {
+      const params = { filters: { slug: { $eq: slug } } }
+      const { data } = await useAxios<PostListResponse>('get', '/posts', { params })
 
       if (!data?.data?.length) {
         throw createError(notFoundError)
