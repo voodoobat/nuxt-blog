@@ -2,15 +2,15 @@
   <header class="shadow">
     <LayoutContainer>
       <div class="flex justify-between items-center py-4">
-        <nuxt-link to="/" class="text-2xl">
+        <NuxtLink to="/" class="text-2xl">
           Strapi & nuxt
-        </nuxt-link>
-        <nuxt-link to="/user" class="user">
+        </NuxtLink>
+        <NuxtLink to="/user" class="user">
           <span v-if="userStore.isAuthorized" class="user_name">
             {{ userStore.user.username }}
           </span>
-          <svg-icon name="user" class="w-6 h-6" />
-        </nuxt-link>
+          <SvgIcon name="user" class="w-6 h-6" />
+        </NuxtLink>
       </div>
     </LayoutContainer>
   </header>

@@ -1,7 +1,7 @@
 <template>
-  <nuxt-link v-if="to" :to="to" class="button" :class="{ 'is-disabled': disabled }">
+  <NuxtLink v-if="to" :to="to" class="button" :class="{ 'is-disabled': disabled }">
     <slot />
-  </nuxt-link>
+  </NuxtLink>
   <button v-else :type="type" class="button" :disabled="disabled">
     <slot />
   </button>

@@ -1,9 +1,9 @@
 <template>
   <div>
     <h2 class="text-2xl">
-      <nuxt-link :to="`/posts/${post.attributes?.slug}`">
+      <NuxtLink :to="`/posts/${post.attributes?.slug}`">
         {{ post.attributes?.title }}
-      </nuxt-link>
+      </NuxtLink>
     </h2>
     <div class="mt-4" v-html="post.attributes?.content" />
     <p class="mt-3 text-xs text-gray-500">
